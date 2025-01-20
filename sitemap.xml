@@ -1,567 +1,567 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://sitename.bla/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/geometry/geometry_metadata/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/geometry/geometry_metadata/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/AcquisitionMetadataMixin/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/AcquisitionMetadataMixin/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Affine/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Affine/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Alignment/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Alignment/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Annotation/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Annotation/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Axis/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Axis/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/AxisNameMapping/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/AxisNameMapping/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/AxisType/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/AxisType/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/CTFMetadata/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/CTFMetadata/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/CoordMetaMixin/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/CoordMetaMixin/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/CoordinateSystem/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/CoordinateSystem/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/CoordinateTransformation/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/CoordinateTransformation/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Dataset/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Dataset/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/DefectFile/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/DefectFile/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/GainFile/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/GainFile/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Identity/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Identity/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Image2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Image2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Image3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Image3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ImageStack2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ImageStack2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ImageStack3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ImageStack3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/MapAxis/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/MapAxis/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/MovieFrame/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/MovieFrame/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/MovieStack/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/MovieStack/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/MovieStackCollection/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/MovieStackCollection/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/MovieStackSeries/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/MovieStackSeries/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ParticleMap/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ParticleMap/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/PointMatrixSet2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/PointMatrixSet2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/PointMatrixSet3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/PointMatrixSet3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/PointSet2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/PointSet2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/PointSet3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/PointSet3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/PointVectorSet2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/PointVectorSet2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/PointVectorSet3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/PointVectorSet3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ProbabilityMap2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ProbabilityMap2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ProbabilityMap3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ProbabilityMap3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ProjectionAlignment/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ProjectionAlignment/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ProjectionImage/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ProjectionImage/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Refinement/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Refinement/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Run/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Run/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Scale/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Scale/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/SegmentationMask2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/SegmentationMask2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/SegmentationMask3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/SegmentationMask3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Sequence/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Sequence/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/SubProjectionImage/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/SubProjectionImage/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/TiltSeries/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/TiltSeries/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Tomogram/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Tomogram/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/TransformationType/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/TransformationType/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/Translation/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/Translation/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/TriMesh/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/TriMesh/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/accumulated_dose/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/accumulated_dose/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/affine__affine/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/affine__affine/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/affine__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/affine__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/alignment__projection_alignments/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/alignment__projection_alignments/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axisNameMapping__axis1_name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axisNameMapping__axis1_name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axisNameMapping__axis2_name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axisNameMapping__axis2_name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axis__axis_type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axis__axis_type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axis__axis_unit/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axis__axis_unit/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axis__name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axis__name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axis_name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axis_name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axis_type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axis_type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/axis_unit/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/axis_unit/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinateSystem__axes/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinateSystem__axes/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinateSystem__name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinateSystem__name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinateTransformation__input/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinateTransformation__input/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinateTransformation__name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinateTransformation__name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinateTransformation__output/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinateTransformation__output/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinateTransformation__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinateTransformation__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinate_systems/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinate_systems/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/coordinate_transformations/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/coordinate_transformations/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/ctf_metadata/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/ctf_metadata/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/dataset__name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/dataset__name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/dataset__refinements/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/dataset__refinements/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/dataset__runs/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/dataset__runs/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/defocus_angle/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/defocus_angle/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/defocus_u/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/defocus_u/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/defocus_v/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/defocus_v/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/depth/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/depth/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/height/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/height/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/identity__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/identity__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/imageStack2D__images/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/imageStack2D__images/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/imageStack3D__images/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/imageStack3D__images/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/mapAxis__mapAxis/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/mapAxis__mapAxis/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/mapAxis__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/mapAxis__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/matrix2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/matrix2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/matrix3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/matrix3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/movieStackCollection__DefectFile/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/movieStackCollection__DefectFile/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/movieStackCollection__GainFile/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/movieStackCollection__GainFile/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/movieStackCollection__movie_stacks/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/movieStackCollection__movie_stacks/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/movieStackSeries__stacks/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/movieStackSeries__stacks/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/movieStack__images/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/movieStack__images/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/movieStack__path/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/movieStack__path/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/nominal_tilt_angle/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/nominal_tilt_angle/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/origin2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/origin2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/origin3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/origin3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/particle_index/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/particle_index/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/path/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/path/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/projectionAlignment__input/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/projectionAlignment__input/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/projectionAlignment__output/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/projectionAlignment__output/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/projectionAlignment__sequence/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/projectionAlignment__sequence/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/refinement__annotations/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/refinement__annotations/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/refinement__name/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/refinement__name/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/refinement__particle_maps/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/refinement__particle_maps/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/run__alignment/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__alignment/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/run__annotations/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__annotations/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/run__movie_stack_collections/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__movie_stack_collections/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/run__tilt_series/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__tilt_series/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/run__tomograms/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__tomograms/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/scale__scale/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/scale__scale/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/scale__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/scale__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/section/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/section/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/sequence__sequence/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/sequence__sequence/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/sequence__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/sequence__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/tiltSeries__images/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/tiltSeries__images/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/tiltSeries__path/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/tiltSeries__path/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/translation2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/translation2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/translation3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/translation3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/translation__translation/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/translation__translation/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/translation__type/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/translation__type/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/vector2D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/vector2D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/vector3D/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/vector3D/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/width/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/width/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Boolean/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Boolean/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Curie/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Curie/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Date/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Date/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/DateOrDatetime/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/DateOrDatetime/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Datetime/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Datetime/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Decimal/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Decimal/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Double/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Double/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Float/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Float/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Integer/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Integer/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Jsonpath/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Jsonpath/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Jsonpointer/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Jsonpointer/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Ncname/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Ncname/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Nodeidentifier/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Nodeidentifier/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Objectidentifier/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Objectidentifier/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Sparqlpath/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Sparqlpath/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/String/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/String/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Time/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Time/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Uri/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Uri/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
     <url>
-         <loc>https://sitename.bla/linkml/types/Uriorcurie/</loc>
+         <loc>https://cryo-et-standards.github.io/cryoet-geometry/linkml/types/Uriorcurie/</loc>
          <lastmod>2025-01-20</lastmod>
     </url>
 </urlset>
