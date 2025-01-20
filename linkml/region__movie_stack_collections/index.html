@@ -12,7 +12,7 @@
         <meta name="author" content="bla">
       
       
-        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/Run/">
+        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/region__movie_stack_collections/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Class: Run - A specification for cryo-ET metadata</title>
+        <title>Slot: movie_stack_collections - A specification for cryo-ET metadata</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-run" class="md-skip">
+        <a href="#slot-movie_stack_collections" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class: Run
+              Slot: movie_stack_collections
             
           </span>
         </div>
@@ -321,35 +321,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#referenced-by-class" class="md-nav__link">
+  <a href="#domain-and-range" class="md-nav__link">
     <span class="md-ellipsis">
-      Referenced by Class
+      Domain and Range
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
+  <a href="#parents" class="md-nav__link">
     <span class="md-ellipsis">
-      Attributes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attributes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#own" class="md-nav__link">
-    <span class="md-ellipsis">
-      Own
+      Parents
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    <span class="md-ellipsis">
+      Children
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      Used by
+    </span>
+  </a>
   
 </li>
       
@@ -371,42 +374,16 @@
   
 
 
-<h1 id="class-run">Class: Run</h1>
-<p>A tomography run</p>
-<p>URI: <a href="https://w3id.org/cetmd/entities/Run">entities:Run</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Tomogram],[TiltSeries],[Annotation]&lt;annotations%200..*-++[Run],[Tomogram]&lt;tomograms%200..*-++[Run],[Alignment]&lt;alignments%200..*-++[Run],[TiltSeries]&lt;tilt_series%200..*-++[Run],[MovieStackCollection]&lt;movie_stack_collections%200..*-++[Run],[Dataset]++-%20runs%200..*&gt;[Run],[MovieStackCollection],[Dataset],[Annotation],[Alignment]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Tomogram],[TiltSeries],[Annotation]&lt;annotations%200..*-++[Run],[Tomogram]&lt;tomograms%200..*-++[Run],[Alignment]&lt;alignments%200..*-++[Run],[TiltSeries]&lt;tilt_series%200..*-++[Run],[MovieStackCollection]&lt;movie_stack_collections%200..*-++[Run],[Dataset]++-%20runs%200..*&gt;[Run],[MovieStackCollection],[Dataset],[Annotation],[Alignment]" /></a></p>
-<h2 id="referenced-by-class">Referenced by Class</h2>
+<h1 id="slot-movie_stack_collections">Slot: movie_stack_collections</h1>
+<p>The movie stack</p>
+<p>URI: <a href="https://w3id.org/cetmd/entities/region__movie_stack_collections">entities:region__movie_stack_collections</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p>None &#8594;  <sub>0..*</sub> <a href="../MovieStackCollection/">MovieStackCollection</a></p>
+<h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../dataset__runs/">➞runs</a></em>  <sub>0..*</sub>  <strong><a href="./">Run</a></strong></li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<h3 id="own">Own</h3>
-<ul>
-<li><a href="../run__movie_stack_collections/">➞movie_stack_collections</a>  <sub>0..*</sub><ul>
-<li>Description: The movie stack</li>
-<li>Range: <a href="../MovieStackCollection/">MovieStackCollection</a></li>
-</ul>
-</li>
-<li><a href="../run__tilt_series/">➞tilt_series</a>  <sub>0..*</sub><ul>
-<li>Description: The tilt series</li>
-<li>Range: <a href="../TiltSeries/">TiltSeries</a></li>
-</ul>
-</li>
-<li><a href="../run__alignments/">➞alignments</a>  <sub>0..*</sub><ul>
-<li>Description: The alignments</li>
-<li>Range: <a href="../Alignment/">Alignment</a></li>
-</ul>
-</li>
-<li><a href="../run__tomograms/">➞tomograms</a>  <sub>0..*</sub><ul>
-<li>Description: The tomograms</li>
-<li>Range: <a href="../Tomogram/">Tomogram</a></li>
-</ul>
-</li>
-<li><a href="../run__annotations/">➞annotations</a>  <sub>0..*</sub><ul>
-<li>Description: The annotations for this tomography run</li>
-<li>Range: <a href="../Annotation/">Annotation</a></li>
-</ul>
-</li>
+<li><a href="../Region/">Region</a></li>
 </ul>
 
 

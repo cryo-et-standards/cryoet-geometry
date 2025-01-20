@@ -12,7 +12,7 @@
         <meta name="author" content="bla">
       
       
-        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__tilt_series/">
+        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/Average/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Slot: tilt_series - A specification for cryo-ET metadata</title>
+        <title>Class: Average - A specification for cryo-ET metadata</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-tilt_series" class="md-skip">
+        <a href="#class-average" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: tilt_series
+              Class: Average
             
           </span>
         </div>
@@ -321,38 +321,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#domain-and-range" class="md-nav__link">
+  <a href="#referenced-by-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Domain and Range
+      Referenced by Class
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#parents" class="md-nav__link">
+  <a href="#attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Parents
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#own" class="md-nav__link">
+    <span class="md-ellipsis">
+      Own
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#children" class="md-nav__link">
-    <span class="md-ellipsis">
-      Children
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#used-by" class="md-nav__link">
-    <span class="md-ellipsis">
-      Used by
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -374,16 +371,32 @@
   
 
 
-<h1 id="slot-tilt_series">Slot: tilt_series</h1>
-<p>The tilt series</p>
-<p>URI: <a href="https://w3id.org/cetmd/entities/run__tilt_series">entities:run__tilt_series</a></p>
-<h2 id="domain-and-range">Domain and Range</h2>
-<p>None &#8594;  <sub>0..*</sub> <a href="../TiltSeries/">TiltSeries</a></p>
-<h2 id="parents">Parents</h2>
-<h2 id="children">Children</h2>
-<h2 id="used-by">Used by</h2>
+<h1 id="class-average">Class: Average</h1>
+<p>A particle averaging experiment.</p>
+<p>URI: <a href="https://w3id.org/cetmd/entities/Average">entities:Average</a></p>
+<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[ParticleMap],[Annotation]&lt;annotations%200..*-++[Average&#124;name:string%20%3F],[ParticleMap]&lt;particle_maps%200..*-++[Average],[Dataset]++-%20averages%200..*&gt;[Average],[Dataset],[Annotation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[ParticleMap],[Annotation]&lt;annotations%200..*-++[Average&#124;name:string%20%3F],[ParticleMap]&lt;particle_maps%200..*-++[Average],[Dataset]++-%20averages%200..*&gt;[Average],[Dataset],[Annotation]" /></a></p>
+<h2 id="referenced-by-class">Referenced by Class</h2>
 <ul>
-<li><a href="../Run/">Run</a></li>
+<li><strong>None</strong> <em><a href="../dataset__averages/">➞averages</a></em>  <sub>0..*</sub>  <strong><a href="./">Average</a></strong></li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<h3 id="own">Own</h3>
+<ul>
+<li><a href="../average__name/">➞name</a>  <sub>0..1</sub><ul>
+<li>Description: The name of the averaging experiment.</li>
+<li>Range: <a href="../types/String/">String</a></li>
+</ul>
+</li>
+<li><a href="../average__particle_maps/">➞particle_maps</a>  <sub>0..*</sub><ul>
+<li>Description: The particle maps</li>
+<li>Range: <a href="../ParticleMap/">ParticleMap</a></li>
+</ul>
+</li>
+<li><a href="../average__annotations/">➞annotations</a>  <sub>0..*</sub><ul>
+<li>Description: The annotations</li>
+<li>Range: <a href="../Annotation/">Annotation</a></li>
+</ul>
+</li>
 </ul>
 
 

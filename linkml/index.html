@@ -558,6 +558,7 @@
 <li><a href="TriMesh/">TriMesh</a> - A mesh annotation.</li>
 </ul>
 </li>
+<li><a href="Average/">Average</a> - A particle averaging experiment.</li>
 <li><a href="Axis/">Axis</a> - An axis in a coordinate system</li>
 <li><a href="AxisNameMapping/">AxisNameMapping</a> - Axis name to Axis name mapping</li>
 <li><a href="CTFMetadata/">CTFMetadata</a> - A set of CTF patameters for an image.</li>
@@ -596,8 +597,7 @@
 <li><a href="MovieStack/">MovieStack</a> - A stack of movie frames.</li>
 <li><a href="MovieStackCollection/">MovieStackCollection</a> - A collection of movie stacks using the same gain and defect files.</li>
 <li><a href="MovieStackSeries/">MovieStackSeries</a> - A group of movie stacks that belong to a single tilt series.</li>
-<li><a href="Refinement/">Refinement</a> - A particle map refinement experiment.</li>
-<li><a href="Run/">Run</a> - A tomography run</li>
+<li><a href="Region/">Region</a> - Raw data (movie stacks) and derived data (tilt series, tomograms, annotations) from a single region of a specimen.</li>
 <li><a href="TiltSeries/">TiltSeries</a> - A stack of projection images.</li>
 </ul>
 <h3 id="mixins">Mixins</h3>
@@ -607,6 +607,9 @@
 <li><a href="affine__affine/">➞affine</a> - The affine matrix</li>
 <li><a href="affine__type/">➞type</a> - The type of transformation</li>
 <li><a href="alignment__projection_alignments/">➞projection_alignments</a> - alignment for a specific projection</li>
+<li><a href="average__annotations/">➞annotations</a> - The annotations</li>
+<li><a href="average__name/">➞name</a> - The name of the averaging experiment.</li>
+<li><a href="average__particle_maps/">➞particle_maps</a> - The particle maps</li>
 <li><a href="axisNameMapping__axis1_name/">➞axis1_name</a> - The type of transformation</li>
 <li><a href="axisNameMapping__axis2_name/">➞axis2_name</a> - The mapping of the axis names</li>
 <li><a href="axis__axis_type/">➞axis_type</a></li>
@@ -624,9 +627,9 @@
 <li><a href="coordinate_systems/">coordinate_systems</a> - Named coordinate systems for this entity</li>
 <li><a href="coordinate_transformations/">coordinate_transformations</a> - Named coordinate systems for this entity</li>
 <li><a href="ctf_metadata/">ctf_metadata</a> - A set of CTF patameters for an image.</li>
+<li><a href="dataset__averages/">➞averages</a> - The averages in the dataset</li>
 <li><a href="dataset__name/">➞name</a> - The name of the dataset</li>
-<li><a href="dataset__refinements/">➞refinements</a> - The refinements in the dataset</li>
-<li><a href="dataset__runs/">➞runs</a> - The runs in the dataset</li>
+<li><a href="dataset__regions/">➞regions</a> - The regions in the dataset</li>
 <li><a href="defocus_angle/">defocus_angle</a> - Estimated angle of astigmatism.</li>
 <li><a href="defocus_u/">defocus_u</a> - Estimated defocus U for this image in Angstrom, underfocus positive.</li>
 <li><a href="defocus_v/">defocus_v</a> - Estimated defocus V for this image in Angstrom, underfocus positive.</li>
@@ -653,14 +656,11 @@
 <li><a href="projectionAlignment__input/">➞input</a> - The source coordinate system name</li>
 <li><a href="projectionAlignment__output/">➞output</a> - The target coordinate system name</li>
 <li><a href="projectionAlignment__sequence/">➞sequence</a> - The sequence of transformations</li>
-<li><a href="refinement__annotations/">➞annotations</a> - The annotations</li>
-<li><a href="refinement__name/">➞name</a> - The name of the refinement</li>
-<li><a href="refinement__particle_maps/">➞particle_maps</a> - The particle maps</li>
-<li><a href="run__alignments/">➞alignments</a> - The alignments</li>
-<li><a href="run__annotations/">➞annotations</a> - The annotations for this tomography run</li>
-<li><a href="run__movie_stack_collections/">➞movie_stack_collections</a> - The movie stack</li>
-<li><a href="run__tilt_series/">➞tilt_series</a> - The tilt series</li>
-<li><a href="run__tomograms/">➞tomograms</a> - The tomograms</li>
+<li><a href="region__alignments/">➞alignments</a> - The alignments</li>
+<li><a href="region__annotations/">➞annotations</a> - The annotations for this region</li>
+<li><a href="region__movie_stack_collections/">➞movie_stack_collections</a> - The movie stack</li>
+<li><a href="region__tilt_series/">➞tilt_series</a> - The tilt series</li>
+<li><a href="region__tomograms/">➞tomograms</a> - The tomograms</li>
 <li><a href="scale__scale/">➞scale</a> - The scaling vector</li>
 <li><a href="scale__type/">➞type</a> - The type of transformation</li>
 <li><a href="section/">section</a> - 0-based section index to the entity inside a stack.</li>

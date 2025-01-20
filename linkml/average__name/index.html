@@ -12,7 +12,7 @@
         <meta name="author" content="bla">
       
       
-        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/Refinement/">
+        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/average__name/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Class: Refinement - A specification for cryo-ET metadata</title>
+        <title>Slot: name - A specification for cryo-ET metadata</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-refinement" class="md-skip">
+        <a href="#slot-name" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class: Refinement
+              Slot: name
             
           </span>
         </div>
@@ -321,35 +321,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#referenced-by-class" class="md-nav__link">
+  <a href="#domain-and-range" class="md-nav__link">
     <span class="md-ellipsis">
-      Referenced by Class
+      Domain and Range
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
+  <a href="#parents" class="md-nav__link">
     <span class="md-ellipsis">
-      Attributes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attributes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#own" class="md-nav__link">
-    <span class="md-ellipsis">
-      Own
+      Parents
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    <span class="md-ellipsis">
+      Children
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      Used by
+    </span>
+  </a>
   
 </li>
       
@@ -371,32 +374,16 @@
   
 
 
-<h1 id="class-refinement">Class: Refinement</h1>
-<p>A particle map refinement experiment.</p>
-<p>URI: <a href="https://w3id.org/cetmd/entities/Refinement">entities:Refinement</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[Annotation]&lt;annotations%200..*-++[Refinement&#124;name:string%20%3F],[ParticleMap]&lt;particle_maps%200..*-++[Refinement],[Dataset]++-%20refinements%200..*&gt;[Refinement],[ParticleMap],[Dataset],[Annotation]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[Annotation]&lt;annotations%200..*-++[Refinement&#124;name:string%20%3F],[ParticleMap]&lt;particle_maps%200..*-++[Refinement],[Dataset]++-%20refinements%200..*&gt;[Refinement],[ParticleMap],[Dataset],[Annotation]" /></a></p>
-<h2 id="referenced-by-class">Referenced by Class</h2>
+<h1 id="slot-name">Slot: name</h1>
+<p>The name of the averaging experiment.</p>
+<p>URI: <a href="https://w3id.org/cetmd/entities/average__name">entities:average__name</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p>None &#8594;  <sub>0..1</sub> <a href="../types/String/">String</a></p>
+<h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../dataset__refinements/">➞refinements</a></em>  <sub>0..*</sub>  <strong><a href="./">Refinement</a></strong></li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<h3 id="own">Own</h3>
-<ul>
-<li><a href="../refinement__name/">➞name</a>  <sub>0..1</sub><ul>
-<li>Description: The name of the refinement</li>
-<li>Range: <a href="../types/String/">String</a></li>
-</ul>
-</li>
-<li><a href="../refinement__particle_maps/">➞particle_maps</a>  <sub>0..*</sub><ul>
-<li>Description: The particle maps</li>
-<li>Range: <a href="../ParticleMap/">ParticleMap</a></li>
-</ul>
-</li>
-<li><a href="../refinement__annotations/">➞annotations</a>  <sub>0..*</sub><ul>
-<li>Description: The annotations</li>
-<li>Range: <a href="../Annotation/">Annotation</a></li>
-</ul>
-</li>
+<li><a href="../Average/">Average</a></li>
 </ul>
 
 
