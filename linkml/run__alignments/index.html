@@ -12,7 +12,7 @@
         <meta name="author" content="bla">
       
       
-        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/Alignment/">
+        <link rel="canonical" href="https://cryo-et-standards.github.io/cryoet-geometry/linkml/run__alignments/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Class: Alignment - A specification for cryo-ET metadata</title>
+        <title>Slot: alignments - A specification for cryo-ET metadata</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-alignment" class="md-skip">
+        <a href="#slot-alignments" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class: Alignment
+              Slot: alignments
             
           </span>
         </div>
@@ -321,35 +321,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#referenced-by-class" class="md-nav__link">
+  <a href="#domain-and-range" class="md-nav__link">
     <span class="md-ellipsis">
-      Referenced by Class
+      Domain and Range
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#attributes" class="md-nav__link">
+  <a href="#parents" class="md-nav__link">
     <span class="md-ellipsis">
-      Attributes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attributes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#own" class="md-nav__link">
-    <span class="md-ellipsis">
-      Own
+      Parents
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#children" class="md-nav__link">
+    <span class="md-ellipsis">
+      Children
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#used-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      Used by
+    </span>
+  </a>
   
 </li>
       
@@ -371,22 +374,16 @@
   
 
 
-<h1 id="class-alignment">Class: Alignment</h1>
-<p>The tomographic alignment for a tilt series.</p>
-<p>URI: <a href="https://w3id.org/cetmd/entities/Alignment">entities:Alignment</a></p>
-<p><a href="https://yuml.me/diagram/nofunky;dir:TB/class/[ProjectionAlignment],[ProjectionAlignment]&lt;projection_alignments%200..*-++[Alignment],[Run]++-%20alignments%200..*&gt;[Alignment],[Run]"><img alt="img" src="https://yuml.me/diagram/nofunky;dir:TB/class/[ProjectionAlignment],[ProjectionAlignment]&lt;projection_alignments%200..*-++[Alignment],[Run]++-%20alignments%200..*&gt;[Alignment],[Run]" /></a></p>
-<h2 id="referenced-by-class">Referenced by Class</h2>
+<h1 id="slot-alignments">Slot: alignments</h1>
+<p>The alignments</p>
+<p>URI: <a href="https://w3id.org/cetmd/entities/run__alignments">entities:run__alignments</a></p>
+<h2 id="domain-and-range">Domain and Range</h2>
+<p>None &#8594;  <sub>0..*</sub> <a href="../Alignment/">Alignment</a></p>
+<h2 id="parents">Parents</h2>
+<h2 id="children">Children</h2>
+<h2 id="used-by">Used by</h2>
 <ul>
-<li><strong>None</strong> <em><a href="../run__alignments/">➞alignments</a></em>  <sub>0..*</sub>  <strong><a href="./">Alignment</a></strong></li>
-</ul>
-<h2 id="attributes">Attributes</h2>
-<h3 id="own">Own</h3>
-<ul>
-<li><a href="../alignment__projection_alignments/">➞projection_alignments</a>  <sub>0..*</sub><ul>
-<li>Description: alignment for a specific projection</li>
-<li>Range: <a href="../ProjectionAlignment/">ProjectionAlignment</a></li>
-</ul>
-</li>
+<li><a href="../Run/">Run</a></li>
 </ul>
 
 
