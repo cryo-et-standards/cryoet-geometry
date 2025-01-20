@@ -1,0 +1,1585 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A specification for cryo-ET metadata">
+      
+      
+        <meta name="author" content="bla">
+      
+      
+        <link rel="canonical" href="https://sitename.bla/geometry/geometry_metadata/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../linkml/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Geometry Definitions - A specification for cryo-ET metadata</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cryoet-coordinate-systems-and-transformations-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="A specification for cryo-ET metadata" class="md-header__button md-logo" aria-label="A specification for cryo-ET metadata" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            A specification for cryo-ET metadata
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Geometry Definitions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/orgname/repo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    orgname/repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="A specification for cryo-ET metadata" class="md-nav__button md-logo" aria-label="A specification for cryo-ET metadata" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    A specification for cryo-ET metadata
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/orgname/repo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    orgname/repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Geometry Definitions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Geometry Definitions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geometry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Notation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Notation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points-and-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points and Vectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagevolume-grids-and-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image/Volume Grids and Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-handed-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-handed Coordinate System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformation-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformation Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transformation Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d-rotation-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Rotation Matrices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-scaling-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Scaling Matrices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-reflection-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Reflection Matrices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-homogeneous-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Homogeneous Coordinates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalar-indeces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalar Indeces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imagevolume-grids-imagevolume-functions-and-their-coordinate-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      2D Images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2D Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-image-arrays-to-continuous-image-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Image Arrays to Continuous Image Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-2d-image-arrays-and-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 2D Image Arrays and Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3D Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-image-arrays-to-continuous-image-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Image Arrays to Continuous Image Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-3d-image-arrays-and-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 3D Image Arrays and Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coordinate Transformations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coordinate Transformations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-2d-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 2D Transformations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-3d-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 3D Transformations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomographic-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tomographic Alignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subtomogram-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subtomogram Alignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-coordinate-systems-and-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Coordinate Systems and Transformations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Annotations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segmentation-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segmentation Annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-of-points-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set of Points Annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linkml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LinkML Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geometry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Notation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Notation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#points-and-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Points and Vectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagevolume-grids-and-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image/Volume Grids and Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-handed-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Right-handed Coordinate System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformation-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformation Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transformation Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d-rotation-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Rotation Matrices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-scaling-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Scaling Matrices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-reflection-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Reflection Matrices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-homogeneous-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Homogeneous Coordinates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalar-indeces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scalar Indeces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imagevolume-grids-imagevolume-functions-and-their-coordinate-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      2D Images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2D Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-image-arrays-to-continuous-image-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Image Arrays to Continuous Image Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-2d-image-arrays-and-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 2D Image Arrays and Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3D Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-image-arrays-to-continuous-image-functions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discrete Image Arrays to Continuous Image Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-3d-image-arrays-and-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 3D Image Arrays and Functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coordinate Transformations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Coordinate Transformations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-2d-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 2D Transformations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-3d-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named 3D Transformations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomographic-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tomographic Alignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subtomogram-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subtomogram Alignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-coordinate-systems-and-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of Coordinate Systems and Transformations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Annotations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segmentation-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segmentation Annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-of-points-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set of Points Annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="cryoet-coordinate-systems-and-transformations-specification">CryoET Coordinate Systems and Transformations Specification</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#geometry">Geometry</a></li>
+<li><a href="#basic-concepts">Basic concepts</a></li>
+<li><a href="#basic-notation">Basic Notation</a><ul>
+<li><a href="#points-and-vectors">Points and Vectors</a></li>
+<li><a href="#imagevolume-grids-and-functions">Image/Volume Grids and Functions</a></li>
+<li><a href="#matrices">Matrices</a></li>
+</ul>
+</li>
+<li><a href="#right-handed-coordinate-system">Right-handed Coordinate System</a></li>
+<li><a href="#transformation-matrices">Transformation Matrices</a><ul>
+<li><a href="#3d-rotation-matrices">3D Rotation Matrices</a></li>
+<li><a href="#3d-scaling-matrices">3D Scaling Matrices</a></li>
+<li><a href="#3d-reflection-matrices">3D Reflection Matrices</a></li>
+</ul>
+</li>
+<li><a href="#3d-homogeneous-coordinates">3D Homogeneous Coordinates</a></li>
+<li>
+<p><a href="#scalar-indices">Scalar Indices</a></p>
+</li>
+<li>
+<p><a href="#imagevolume-grids-imagevolume-functions-and-their-coordinate-spaces">Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces</a></p>
+</li>
+<li><a href="#2d-images">2D Images</a><ul>
+<li><a href="#discrete-image-arrays-to-continuous-image-functions">Discrete Image Arrays to Continuous Image Functions</a></li>
+<li><a href="#named-2d-image-arrays-and-functions">Named 2D Image Arrays and Functions</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#3d-images">3D Images</a></p>
+<ul>
+<li><a href="#discrete-image-arrays-to-continuous-image-functions-1">Discrete Image Arrays to Continuous Image Functions</a></li>
+<li><a href="#named-3d-image-arrays-and-functions">Named 3D Image Arrays and Functions</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#coordinate-transformations">Coordinate Transformations</a></p>
+</li>
+<li><a href="#named-2d-transformations">Named 2D Transformations</a></li>
+<li>
+<p><a href="#named-3d-transformations">Named 3D Transformations</a></p>
+</li>
+<li>
+<p><a href="#tomographic-alignment">Tomographic Alignment</a></p>
+</li>
+<li>
+<p><a href="#subtomogram-alignment">Subtomogram Alignment</a></p>
+</li>
+<li>
+<p><a href="#annotations">Annotations</a></p>
+</li>
+<li><a href="#segmentation-annotations">Segmentation Annotations</a></li>
+<li><a href="#set-of-points-annotations">Set of Points Annotations</a></li>
+</ul>
+<h2 id="geometry">Geometry</h2>
+<h3 id="basic-concepts">Basic concepts</h3>
+<ul>
+<li><strong>Logical Space</strong>: Continuous space in physical units of Angstroms (Å).</li>
+<li><strong>Discrete Space</strong>: Discrete array space with integer coordinates.</li>
+</ul>
+<p>We explicitly define the discrete space to remove any ambiguity about the location of the origin and the direction of 
+the axes of the discrete image, which has caused errors in the past.</p>
+<h3 id="basic-notation">Basic Notation</h3>
+<h4 id="points-and-vectors">Points and Vectors</h4>
+<ul>
+<li>Discrete 2D coordinates are denoted as <span class="arithmatex">\(\mathbf{s^*} = (s^*_x, s^*_y)^T\)</span> where <span class="arithmatex">\(s^*_x, s^*_y \in \mathbb{Z}\)</span></li>
+<li>Discrete 3D coordinates are denoted as <span class="arithmatex">\(\mathbf{r^*} = (r^*_x, r^*_y, r^*_z)^T\)</span> where <span class="arithmatex">\(r^*_x, r^*_y, r^*_z \in \mathbb{Z}\)</span></li>
+<li>2D vectors are denoted as (lower case, bold face) <span class="arithmatex">\(\mathbf{s} = (s_x, s_y)^T\)</span> where <span class="arithmatex">\(s_x, s_y \in \mathbb{R}\)</span> </li>
+<li>3D vectors are denoted as (lower case, bold face) <span class="arithmatex">\(\mathbf{r} = (r_x, r_y, r_z)^T\)</span> where <span class="arithmatex">\(r_x, r_y, r_z \in \mathbb{R}\)</span></li>
+</ul>
+<h4 id="imagevolume-grids-and-functions">Image/Volume Grids and Functions</h4>
+<ul>
+<li>Discrete 2D image arrays are denoted as (capital, plain) 
+<span class="arithmatex">\(<span class="arithmatex">\(G^*[\mathbf{s}^*]: \mathbb{Z}^2 \rightarrow \mathbb{R}\)</span>\)</span></li>
+</ul>
+<p>where <span class="arithmatex">\(\mathbf{N}_G = (n_x, n_y)\)</span> is the size of the image in pixels. <span class="arithmatex">\(n_x\)</span> is the <strong>width</strong> and <span class="arithmatex">\(n_y\)</span> is the <strong>height</strong> 
+   of the image. </p>
+<ul>
+<li>
+<p>Continuous 2D image functions are denoted as (capital, plain)
+<span class="arithmatex">\(<span class="arithmatex">\(G(\mathbf{s}): \mathbb{R}^2 \rightarrow \mathbb{R}\)</span>\)</span></p>
+</li>
+<li>
+<p>Discrete 3D volume arrays are denoted as (capital, plain)
+<span class="arithmatex">\(<span class="arithmatex">\(V^*[\mathbf{r}^*]: \mathbb{Z}^3 \rightarrow \mathbb{R}\)</span>\)</span></p>
+</li>
+</ul>
+<p>where <span class="arithmatex">\(\mathbf{N}_V = (n_x, n_y, n_z)\)</span> is the size of the volume in pixels. <span class="arithmatex">\(n_x\)</span> is the <strong>width</strong>, <span class="arithmatex">\(n_y\)</span> is the 
+    <strong>height</strong> and <span class="arithmatex">\(n_z\)</span> is the <strong>depth</strong> of the volume.</p>
+<ul>
+<li>Continuous 3D volume functions are denoted as (capital, plain)
+<span class="arithmatex">\(<span class="arithmatex">\(V(\mathbf{r}): \mathbb{R}^3 \rightarrow \mathbb{R}\)</span>\)</span></li>
+</ul>
+<h4 id="matrices">Matrices</h4>
+<ul>
+<li>Transformation matrices are denoted as (capital, bold face) <span class="arithmatex">\(\mathbf{M}\)</span></li>
+<li>Homogeneous transformation matrices are denoted as (capital, bold face with tilde) <span class="arithmatex">\(\tilde{\mathbf{M}}\)</span></li>
+</ul>
+<h3 id="right-handed-coordinate-system">Right-handed Coordinate System</h3>
+<p>The standard coordinate system for cryoET is a right-handed Cartesian coordinate system. The defining characteristic of 
+a right-handed coordinate system is the following set of relationships between the vectors that constitute the 
+coordinate system:</p>
+<div class="arithmatex">\[\mathbf{x} \times \mathbf{y} = \mathbf{z}$$
+$$\mathbf{y} \times \mathbf{z} = \mathbf{x}$$
+$$\mathbf{z} \times \mathbf{x} = \mathbf{y}\]</div>
+<p>Where <span class="arithmatex">\(\times\)</span> denotes the cross product and <span class="arithmatex">\(\mathbf{x}, \mathbf{y}, \mathbf{z}\)</span> are the unit basis vectors.</p>
+<p>The right-handed system is defined such that:
+- Electrons travel from negative <span class="arithmatex">\(z\)</span> to positive <span class="arithmatex">\(z\)</span> (aligned with microscope column)
+- <span class="arithmatex">\(y\)</span> points towards the microscopist 
+- <span class="arithmatex">\(x\)</span> points to the microscopist's right</p>
+<p>All points, vectors and transformations are defined with respect to the right-handed coordinate system.</p>
+<h3 id="transformation-matrices">Transformation Matrices</h3>
+<p>Transformation matrices are used to represent geometrical transformations between coordinate spaces. For a transformation
+from space A to space B:</p>
+<div class="arithmatex">\[\mathbf{s}_B = \mathbf{M}_{A \rightarrow B} \mathbf{s}_A\]</div>
+<p>Where:
+- <span class="arithmatex">\(\mathbf{s}_A\)</span> is the coordinate in space A
+- <span class="arithmatex">\(\mathbf{s}_B\)</span> is the coordinate in space B
+- <span class="arithmatex">\(\mathbf{M}_{A \rightarrow B}\)</span> is the transformation matrix from space A to space B</p>
+<h4 id="3d-rotation-matrices">3D Rotation Matrices</h4>
+<ul>
+<li>
+<p>Right-handed 3D rotation about the x-axis by angle <span class="arithmatex">\(\alpha\)</span>:
+$$
+R_x(\alpha) = \begin{pmatrix}
+1 &amp; 0 &amp; 0 \
+0 &amp; \cos\alpha &amp; \sin\alpha \
+0 &amp; -\sin\alpha &amp; \cos\alpha
+\end{pmatrix}
+$$</p>
+</li>
+<li>
+<p>Right-handed 3D rotation about the y-axis by angle <span class="arithmatex">\(\alpha\)</span>:
+$$
+R_y(\alpha) = \begin{pmatrix}
+\cos\alpha &amp; 0 &amp; -\sin\alpha \
+0 &amp; 1 &amp; 0 \
+\sin\alpha &amp; 0 &amp; \cos\alpha
+\end{pmatrix}
+$$</p>
+</li>
+<li>
+<p>Right-handed 3D rotation about the z-axis by angle <span class="arithmatex">\(\alpha\)</span>:
+$$
+R_z(\alpha) = \begin{pmatrix}
+\cos\alpha &amp; \sin\alpha &amp; 0 \
+-\sin\alpha &amp; \cos\alpha &amp; 0 \
+0 &amp; 0 &amp; 1
+\end{pmatrix}
+$$</p>
+</li>
+</ul>
+<h4 id="3d-scaling-matrices">3D Scaling Matrices</h4>
+<ul>
+<li>3D scaling matrix with scaling factors <span class="arithmatex">\(s_x, s_y, s_z\)</span>:</li>
+</ul>
+<div class="arithmatex">\[
+S(s_x, s_y, s_z) = \begin{pmatrix}
+s_x &amp; 0 &amp; 0 \\
+0 &amp; s_y &amp; 0 \\
+0 &amp; 0 &amp; s_z
+\end{pmatrix}
+\]</div>
+<h4 id="3d-reflection-matrices">3D Reflection Matrices</h4>
+<ul>
+<li>3D reflection about the x-y plane:</li>
+</ul>
+<div class="arithmatex">\[
+F_{xy} = \begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; -1
+\end{pmatrix}
+\]</div>
+<ul>
+<li>3D reflection about the y-z plane:</li>
+</ul>
+<div class="arithmatex">\[
+F_{yz} = \begin{pmatrix}
+-1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{pmatrix}
+\]</div>
+<ul>
+<li>3D reflection about the x-z plane:</li>
+</ul>
+<div class="arithmatex">\[
+F_{xz} = \begin{pmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{pmatrix}
+\]</div>
+<h3 id="3d-homogeneous-coordinates">3D Homogeneous Coordinates</h3>
+<p>Matrix operations on homogeneous coordinates are employed to represent geometrical transformations:</p>
+<div class="arithmatex">\[\tilde{r}_{F} = \tilde{\mathbf{M}}_F\tilde{r}\]</div>
+<p>Where:
+- <span class="arithmatex">\(\tilde{r} \in \mathbb{R}^3 \times \{1\}\)</span> denotes the homogeneous coordinate of the point undergoing transformation
+- <span class="arithmatex">\(\tilde{r}_F = (x, y, z, 1) \in \mathbb{R}^3 \times \{1\}\)</span> represents its transformed counterpart in homogeneous coordinates
+- <span class="arithmatex">\(\tilde{\mathbf{F}}\)</span> is a 4×4 invertible matrix of real numbers, structured as:</p>
+<div class="arithmatex">\[\tilde{\mathbf{M}}_F = \begin{pmatrix} 
+r_{11} &amp; r_{12} &amp; r_{13} &amp; t_x \\
+r_{21} &amp; r_{22} &amp; r_{23} &amp; t_y \\
+r_{31} &amp; r_{32} &amp; r_{33} &amp; t_z \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix} = \begin{pmatrix}
+\mathbf{R} &amp; \mathbf{t} \\
+0^T &amp; 1
+\end{pmatrix}\]</div>
+<p>Where:
+- <span class="arithmatex">\(\mathbf{R}\)</span> is a 3×3 rotation matrix
+- <span class="arithmatex">\(\mathbf{t} = (t_x, t_y, t_z)^T\)</span> is a translation vector</p>
+<h3 id="scalar-indeces">Scalar Indeces</h3>
+<ul>
+<li><span class="arithmatex">\(i \in \mathbb{Z}\)</span> - The tilt index</li>
+<li><span class="arithmatex">\(j \in \mathbb{Z}\)</span> - The frame index  </li>
+<li><span class="arithmatex">\(n \in \mathbb{Z}\)</span> - The sub-tomogram or sub-tiltstack index</li>
+</ul>
+<h2 id="imagevolume-grids-imagevolume-functions-and-their-coordinate-spaces">Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces</h2>
+<p>Image Functions in cryoET processing are defined in terms of their discrete and continuous representations. </p>
+<h3 id="2d-images">2D Images</h3>
+<h4 id="discrete-image-arrays-to-continuous-image-functions">Discrete Image Arrays to Continuous Image Functions</h4>
+<p>For a 2D image C:</p>
+<div class="arithmatex">\[C^*[\mathbf{s}^*_C] = C(\mathbf{M}_C \mathbf{s}^*_C) = C(\mathbf{s}_C)\]</div>
+<p>Where:
+- <span class="arithmatex">\(s^*_C\)</span> is the discrete coordinate in the image space
+- <span class="arithmatex">\(s_C\)</span> is the continuous coordinate in the image space 
+- <span class="arithmatex">\(C^*[\cdot]\)</span> is the discrete image array in discrete space
+- <span class="arithmatex">\(C(\cdot)\)</span> is the continuous image function in logical space
+- <span class="arithmatex">\(\mathbf{M}_C\)</span> is the transformation matrix from the discrete space to the continuous image or volume space</p>
+<p>Matrix <span class="arithmatex">\(\mathbf{M}_C\)</span> encodes the translation and scaling operations that map the discrete image space to the continuous 
+image space in that order, and is thus composed of a translation matrix <span class="arithmatex">\(\mathbf{T}_C(t_x, t_y)\)</span> and a scaling matrix 
+<span class="arithmatex">\(\mathbf{S}_C(s_x, s_y)\)</span>:</p>
+<div class="arithmatex">\[\mathbf{M}_C = \mathbf{S}_C \mathbf{T}_C\]</div>
+<p>By default, the origin of the discrete image space is assumed to be at <span class="arithmatex">\(\lfloor \frac{\mathbf{N}_C}{2} \rfloor\)</span>:</p>
+<div class="arithmatex">\[
+\mathbf{M}_C = \begin{pmatrix}
+s_x &amp; 0 &amp; s_x \lfloor 0.5n_x \rfloor \\
+0 &amp; s_y &amp; s_y \lfloor 0.5n_y \rfloor \\
+0 &amp; 0 &amp; 1
+\end{pmatrix}
+\]</div>
+<h4 id="named-2d-image-arrays-and-functions">Named 2D Image Arrays and Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Array/Function</th>
+<th>Discrete/Continuous Coords</th>
+<th>D-&gt;C Transform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calibration Images</td>
+<td><span class="arithmatex">\(C^*[\cdot], C(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{s}^*_C \in \mathbb{Z}^2, \mathbf{s}_C \in \mathbb{R}^2\)</span></td>
+<td><span class="arithmatex">\(M_g\)</span></td>
+</tr>
+<tr>
+<td>Movie Frame</td>
+<td><span class="arithmatex">\(M^*_j[\cdot], M_j(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{s}^*_M \in \mathbb{Z}^2, \mathbf{s}_M \in \mathbb{R}^2\)</span></td>
+<td><span class="arithmatex">\(M_M\)</span></td>
+</tr>
+<tr>
+<td>Projection</td>
+<td><span class="arithmatex">\(P^*_i[\cdot], P_i(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{s}^*_P \in \mathbb{Z}^2, \mathbf{s}_P \in \mathbb{R}^2\)</span></td>
+<td><span class="arithmatex">\(M_P\)</span></td>
+</tr>
+<tr>
+<td>Sub-Projection</td>
+<td><span class="arithmatex">\(S^*_{i,n}[\cdot], S_{i,n}(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{s}^*_S \in \mathbb{Z}^2, \mathbf{s}_S \in \mathbb{R}^2\)</span></td>
+<td><span class="arithmatex">\(M_S\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3d-images">3D Images</h3>
+<h4 id="discrete-image-arrays-to-continuous-image-functions_1">Discrete Image Arrays to Continuous Image Functions</h4>
+<p>For a 3D volume V:</p>
+<div class="arithmatex">\[V^*[\mathbf{r}^*_V] = V(\mathbf{M}_V \mathbf{r}^*_V) = V(\mathbf{r}_V)\]</div>
+<p>Where:
+- <span class="arithmatex">\(\mathbf{r}^*_V\)</span> is the discrete coordinate in the 3D image space
+- <span class="arithmatex">\(\mathbf{r}_V\)</span> is the continuous coordinate in the 3D image space 
+- <span class="arithmatex">\(V^*[\cdot]\)</span> is the discrete volume array in discrete space
+- <span class="arithmatex">\(V(\cdot)\)</span> is the continuous volume function in logical space
+- <span class="arithmatex">\(\mathbf{M}_V\)</span> is the transformation matrix from the discrete space to the continuous image or volume space</p>
+<p>Matrix <span class="arithmatex">\(\mathbf{M}_V\)</span> encodes the translation and scaling operations that map the discrete volume space to the continuous volume space in that order, and is thus composed of a translation matrix <span class="arithmatex">\(\mathbf{T}_V(t_x, t_y, t_z)\)</span> and a scaling matrix <span class="arithmatex">\(\mathbf{S}_V(s_x, s_y, s_z)\)</span>:</p>
+<div class="arithmatex">\[\mathbf{M}_V = \mathbf{S}_V \mathbf{T}_V\]</div>
+<p>By default, the origin of the discrete volume space is assumed to be at <span class="arithmatex">\(\lfloor \frac{\mathbf{N}_V}{2} \rfloor\)</span>:</p>
+<div class="arithmatex">\[
+\mathbf{M}_V = \begin{pmatrix}
+s_x &amp; 0 &amp; 0 &amp; s_x \lfloor 0.5 n_x \rfloor \\
+0 &amp; s_y &amp; 0 &amp; s_y \lfloor 0.5 n_y \rfloor \\
+0 &amp; 0 &amp; s_z &amp; s_z \lfloor 0.5 n_z \rfloor \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+\]</div>
+<h4 id="named-3d-image-arrays-and-functions">Named 3D Image Arrays and Functions</h4>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Signal/Function</th>
+<th>Discrete/Continuous Coords</th>
+<th>D-&gt;C Transform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annotation</td>
+<td><span class="arithmatex">\(A^*[\cdot], A(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{r}^*_A \in \mathbb{Z}^3, \mathbf{r}_A \in \mathbb{R}^3\)</span></td>
+<td><span class="arithmatex">\(M_A\)</span></td>
+</tr>
+<tr>
+<td>Tomogram</td>
+<td><span class="arithmatex">\(V^*[\cdot], V(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{r}^*_V \in \mathbb{Z}^3, \mathbf{r}_V \in \mathbb{R}^3\)</span></td>
+<td><span class="arithmatex">\(M_V\)</span></td>
+</tr>
+<tr>
+<td>Subtomogram</td>
+<td><span class="arithmatex">\(T^*_n[\cdot], T_n(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{r}^*_T \in \mathbb{Z}^3, \mathbf{r}_T \in \mathbb{R}^3\)</span></td>
+<td><span class="arithmatex">\(M_T\)</span></td>
+</tr>
+<tr>
+<td>Particle Reconstruction</td>
+<td><span class="arithmatex">\(F^*[\cdot], F(\cdot)\)</span></td>
+<td><span class="arithmatex">\(\mathbf{r}^*_F \in \mathbb{Z}^3, \mathbf{r}_F \in \mathbb{R}^3\)</span></td>
+<td><span class="arithmatex">\(M_F\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="coordinate-transformations">Coordinate Transformations</h2>
+<p>Transformations between coordinate spaces are defined as:</p>
+<p><span class="arithmatex">\(\mathbf{s}_m = M_{c \rightarrow m} \mathbf{s}_c\)</span></p>
+<p>Where <span class="arithmatex">\(M_{c \rightarrow m}\)</span> represents the transformation matrix from space c to space m.</p>
+<h3 id="named-2d-transformations">Named 2D Transformations</h3>
+<p>Useful transformations between 2D image spaces are defined as:</p>
+<table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>Description</th>
+<th>Matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calibration to Movie Frame</td>
+<td>Transform from calibration image to movie frame</td>
+<td><span class="arithmatex">\(M_{C \rightarrow M}\)</span></td>
+</tr>
+<tr>
+<td>Movie Frame to Projection</td>
+<td>Transform from movie frame to projection</td>
+<td><span class="arithmatex">\(M_{M \rightarrow P}\)</span></td>
+</tr>
+<tr>
+<td>Sub-Projection to Projection</td>
+<td>Transform from sub-projection to projection</td>
+<td><span class="arithmatex">\(M_{S \rightarrow P}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>They MUST only be composed of the following transformations:</p>
+<table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>Composition</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calibration to Movie Frame</td>
+<td><span class="arithmatex">\(\mathbf{R}^{2D}({0, 90, 180 270}), \mathbf{F}^{2D}_x\)</span></td>
+<td>90 deg rotations / flip</td>
+</tr>
+<tr>
+<td>Movie Frame to Projection</td>
+<td><span class="arithmatex">\(\mathbf{T}\)</span></td>
+<td>translation</td>
+</tr>
+<tr>
+<td>Sub-Projection to Projection</td>
+<td><span class="arithmatex">\(\mathbf{T}\)</span></td>
+<td>translation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="named-3d-transformations">Named 3D Transformations</h3>
+<table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>Description</th>
+<th>Matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annotation to Tomogram</td>
+<td>Transform from segmentation to tomogram</td>
+<td><span class="arithmatex">\(M_{A \rightarrow V}\)</span></td>
+</tr>
+<tr>
+<td>Annotation Array to Tomogram Array</td>
+<td>Transform from segmentation array to tomogram array</td>
+<td><span class="arithmatex">\(M_{A^* \rightarrow V^*}\)</span></td>
+</tr>
+<tr>
+<td>Subtomogram to Tomogram</td>
+<td>Transform from subtomogram to tomogram</td>
+<td><span class="arithmatex">\(M_{T \rightarrow V}\)</span></td>
+</tr>
+<tr>
+<td>Particle Reconstruction to Tomogram</td>
+<td>Transform from particle reconstruction to tomogram</td>
+<td><span class="arithmatex">\(M_{F \rightarrow V}\)</span></td>
+</tr>
+<tr>
+<td>Particle Reconstruction to Subtomogram</td>
+<td>Transform from particle reconstruction to subtomogram</td>
+<td><span class="arithmatex">\(M_{F \rightarrow T}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>They MUST only be composed of the following transformations:</p>
+<table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>Composition</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Annotation to Tomogram</td>
+<td><span class="arithmatex">\(\mathbf{S}, \mathbf{T}\)</span></td>
+<td>scale, translation</td>
+</tr>
+<tr>
+<td>Subtomogram to Tomogram</td>
+<td><span class="arithmatex">\(\mathbf{R}, \mathbf{T}\)</span></td>
+<td>rotations+translation</td>
+</tr>
+<tr>
+<td>Particle Reconstruction to Tomogram</td>
+<td><span class="arithmatex">\(\mathbf{R}, \mathbf{T}\)</span></td>
+<td>rotations+translation</td>
+</tr>
+<tr>
+<td>Particle Reconstruction to Subtomogram</td>
+<td><span class="arithmatex">\(\mathbf{R}, \mathbf{T}\)</span></td>
+<td>rotations+translation (prior), rotations+translation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tomographic-alignment">Tomographic Alignment</h2>
+<p>Tomographic alignment shall be defined by a single transformation matrix <span class="arithmatex">\(\tilde{\mathbf{M}}_{V \rightarrow P, i}\)</span> per 
+tilt that aligns tomogram coordinates to the projection prior to projection.</p>
+<div class="arithmatex">\[
+\mathbf{s_P} = \begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+\end{bmatrix} \tilde{\mathbf{M}}_{V \rightarrow P, i} \tilde{\mathbf{\tilde{r_V}}}
+\]</div>
+<p>An alignment matrix shall be reported for each tilt included in the reconstruction of a particular tomogram.</p>
+<h2 id="subtomogram-alignment">Subtomogram Alignment</h2>
+<p>Subtomogram alignment shall be defined by a single transformation matrix <span class="arithmatex">\(\tilde{\mathbf{M}}_{F \rightarrow V, n}\)</span> per 
+subtomogram or sub-tiltstack that aligns particle reconstruction coordinates to its predicted locatiion in the tomogram.</p>
+<div class="arithmatex">\[
+\tilde{\mathbf{r_V}} = \tilde{\mathbf{M}}_{F \rightarrow V, n} \tilde{\mathbf{r_F}}
+\]</div>
+<p>An alignment matrix shall be reported for each subtomogram or sub-tiltstack in a particular particle set.</p>
+<h2 id="overview-of-coordinate-systems-and-transformations">Overview of Coordinate Systems and Transformations</h2>
+<p><img alt="" src="../../assets/overview.png" /></p>
+<h2 id="annotations">Annotations</h2>
+<p>We define 3 types of basic annotations:
+- Segmentation: An image array of numeric labels (see above)
+- Set of Points: A set of 2D or 3D points with associated metadata
+- TriMesh: A set of 2D or 3D points and connectivity table to form a triangular mesh</p>
+<h3 id="segmentation-annotations">Segmentation Annotations</h3>
+<p>Segmentation annotations are defined as a 2D or 3D image array of numeric labels. Their spatial relationship to the
+tomogram is defined as above. As a special case, it is allowed to define the segmentation array in the same space as the
+tomogram, in which case the transformation matrix <span class="arithmatex">\(M_{A \rightarrow V}\)</span> is the identity matrix. </p>
+<h3 id="set-of-points-annotations">Set of Points Annotations</h3>
+<p>A set of points is defined as a list of 2D or 3D coordinates with associated metadata. The coordinates are defined in the
+same space as the tomogram, or tomogram array, and the transformation matrix <span class="arithmatex">\(M_{A \rightarrow V}\)</span> is the identity matrix.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2024 orgname
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "search.highlight", "search.suggest", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
