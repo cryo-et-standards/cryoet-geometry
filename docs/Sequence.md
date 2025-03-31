@@ -18,8 +18,8 @@ URI: [https://w3id.org/cetmd/entities/:sequence](https://w3id.org/cetmd/entities
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sequence](Sequence.md) | A sequence of transformations |  no  |
 | [ProjectionAlignment](ProjectionAlignment.md) | The tomographic alignment for a single projection |  no  |
+| [Sequence](Sequence.md) | A sequence of transformations |  no  |
 
 
 

@@ -68,7 +68,7 @@ URI: [https://w3id.org/cetmd/entities/:ProjectionAlignment](https://w3id.org/cet
 | [input](input.md) | 0..1 <br/> [String](String.md) | The source coordinate system name | direct |
 | [output](output.md) | 0..1 <br/> [String](String.md) | The target coordinate system name | direct |
 | [sequence](sequence.md) | * <br/> [CoordinateTransformation](CoordinateTransformation.md)&nbsp;or&nbsp;<br />[Affine](Affine.md)&nbsp;or&nbsp;<br />[Translation](Translation.md) | The sequence of transformations | direct |
-| [transformation_type](transformation_type.md) | 0..1 <br/> [TransformationType](TransformationType.md) | The type of transformation | [Sequence](Sequence.md), [CoordinateTransformation](CoordinateTransformation.md) |
+| [transformation_type](transformation_type.md) | 0..1 <br/> [TransformationType](TransformationType.md) | The type of transformation | [CoordinateTransformation](CoordinateTransformation.md), [Sequence](Sequence.md) |
 | [name](name.md) | 0..1 <br/> [String](String.md) | The name of the coordinate transformation | [CoordinateTransformation](CoordinateTransformation.md) |
 
 

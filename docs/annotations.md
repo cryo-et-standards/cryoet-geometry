@@ -23,8 +23,8 @@ URI: [https://w3id.org/cetmd/entities/:annotations](https://w3id.org/cetmd/entit
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Region](Region.md) | Raw data (movie stacks) and derived data (tilt series, tomograms, annotations... |  no  |
 | [Average](Average.md) | A particle averaging experiment |  no  |
+| [Region](Region.md) | Raw data (movie stacks) and derived data (tilt series, tomograms, annotations... |  no  |
 
 
 

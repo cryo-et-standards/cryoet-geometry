@@ -24,9 +24,9 @@ URI: [https://w3id.org/cetmd/entities/:nominal_tilt_angle](https://w3id.org/cetm
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [ProjectionImage](ProjectionImage.md) | A projection image |  no  |
-| [MovieFrame](MovieFrame.md) | An individual movie frame |  no  |
-| [SubProjectionImage](SubProjectionImage.md) | A croppecd projection image |  no  |
 | [AcquisitionMetadataMixin](AcquisitionMetadataMixin.md) | Metadata concerning the acquisition process |  no  |
+| [SubProjectionImage](SubProjectionImage.md) | A croppecd projection image |  no  |
+| [MovieFrame](MovieFrame.md) | An individual movie frame |  no  |
 
 
 

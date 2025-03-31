@@ -23,14 +23,14 @@ URI: [https://w3id.org/cetmd/entities/:transformation_type](https://w3id.org/cet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Scale](Scale.md) | A scaling transformation |  yes  |
-| [Identity](Identity.md) | The identity transformation |  yes  |
-| [Translation](Translation.md) | A translation transformation |  yes  |
-| [Affine](Affine.md) | An affine transformation |  yes  |
 | [MapAxis](MapAxis.md) | Axis permutation transformation |  yes  |
 | [Sequence](Sequence.md) | A sequence of transformations |  yes  |
+| [Identity](Identity.md) | The identity transformation |  yes  |
+| [Affine](Affine.md) | An affine transformation |  yes  |
 | [CoordinateTransformation](CoordinateTransformation.md) | A coordinate transformation |  no  |
 | [ProjectionAlignment](ProjectionAlignment.md) | The tomographic alignment for a single projection |  no  |
+| [Translation](Translation.md) | A translation transformation |  yes  |
+| [Scale](Scale.md) | A scaling transformation |  yes  |
 
 
 

@@ -23,11 +23,11 @@ URI: [https://w3id.org/cetmd/entities/:depth](https://w3id.org/cetmd/entities/:d
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SegmentationMask3D](SegmentationMask3D.md) | An annotation volume with categorical labels |  no  |
+| [ParticleMap](ParticleMap.md) | A 3D particle density map |  no  |
 | [ProbabilityMap3D](ProbabilityMap3D.md) | An annotation volume with real-valued labels |  no  |
 | [Tomogram](Tomogram.md) | A 3D tomogram |  no  |
+| [SegmentationMask3D](SegmentationMask3D.md) | An annotation volume with categorical labels |  no  |
 | [Image3D](Image3D.md) | A 3D image |  no  |
-| [ParticleMap](ParticleMap.md) | A 3D particle density map |  no  |
 
 
 

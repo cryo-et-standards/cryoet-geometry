@@ -24,8 +24,8 @@ URI: [https://w3id.org/cetmd/entities/:section](https://w3id.org/cetmd/entities/
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [ProjectionImage](ProjectionImage.md) | A projection image |  no  |
-| [MovieFrame](MovieFrame.md) | An individual movie frame |  no  |
 | [SubProjectionImage](SubProjectionImage.md) | A croppecd projection image |  no  |
+| [MovieFrame](MovieFrame.md) | An individual movie frame |  no  |
 
 
 

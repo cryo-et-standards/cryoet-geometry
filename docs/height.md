@@ -23,19 +23,19 @@ URI: [https://w3id.org/cetmd/entities/:height](https://w3id.org/cetmd/entities/:
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SegmentationMask3D](SegmentationMask3D.md) | An annotation volume with categorical labels |  no  |
-| [ProjectionImage](ProjectionImage.md) | A projection image |  no  |
-| [Tomogram](Tomogram.md) | A 3D tomogram |  no  |
-| [SegmentationMask2D](SegmentationMask2D.md) | An annotation image with categorical labels |  no  |
-| [ProbabilityMap3D](ProbabilityMap3D.md) | An annotation volume with real-valued labels |  no  |
-| [MovieFrame](MovieFrame.md) | An individual movie frame |  no  |
-| [Image2D](Image2D.md) | A 2D image |  no  |
-| [Image3D](Image3D.md) | A 3D image |  no  |
-| [GainFile](GainFile.md) | A gain reference file |  no  |
 | [DefectFile](DefectFile.md) | A detector defect file |  no  |
-| [ProbabilityMap2D](ProbabilityMap2D.md) | An annotation image with real-valued labels |  no  |
 | [SubProjectionImage](SubProjectionImage.md) | A croppecd projection image |  no  |
 | [ParticleMap](ParticleMap.md) | A 3D particle density map |  no  |
+| [MovieFrame](MovieFrame.md) | An individual movie frame |  no  |
+| [ProbabilityMap3D](ProbabilityMap3D.md) | An annotation volume with real-valued labels |  no  |
+| [SegmentationMask2D](SegmentationMask2D.md) | An annotation image with categorical labels |  no  |
+| [Tomogram](Tomogram.md) | A 3D tomogram |  no  |
+| [SegmentationMask3D](SegmentationMask3D.md) | An annotation volume with categorical labels |  no  |
+| [ProbabilityMap2D](ProbabilityMap2D.md) | An annotation image with real-valued labels |  no  |
+| [GainFile](GainFile.md) | A gain reference file |  no  |
+| [ProjectionImage](ProjectionImage.md) | A projection image |  no  |
+| [Image2D](Image2D.md) | A 2D image |  no  |
+| [Image3D](Image3D.md) | A 3D image |  no  |
 
 
 

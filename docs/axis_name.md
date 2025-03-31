@@ -23,7 +23,7 @@ URI: [https://w3id.org/cetmd/entities/:axis_name](https://w3id.org/cetmd/entitie
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Axis](Axis.md) | An axis in a coordinate system |  no  |
+| [Axis](Axis.md) | An axis in a coordinate system |  yes  |
 
 
 

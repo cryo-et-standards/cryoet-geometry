@@ -6,12 +6,6 @@ prefixes:
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  image_entities:
-    prefix_prefix: image_entities
-    prefix_reference: https://w3id.org/cetmd/image_entities/
-  annotation:
-    prefix_prefix: annotation
-    prefix_reference: https://w3id.org/cetmd/annotation/
   xsd:
     prefix_prefix: xsd
     prefix_reference: http://www.w3.org/2001/XMLSchema#
@@ -30,6 +24,9 @@ prefixes:
   coord_transforms:
     prefix_prefix: coord_transforms
     prefix_reference: https://w3id.org/cetmd/coord_transforms/
+  image_entities:
+    prefix_prefix: image_entities
+    prefix_reference: https://w3id.org/cetmd/image_entities/
   annotations:
     prefix_prefix: annotations
     prefix_reference: https://w3id.org/cetmd/annotation/
@@ -1138,6 +1135,10 @@ classes:
     - axis_name
     - axis_unit
     - axis_type
+    slot_usage:
+      axis_name:
+        name: axis_name
+        required: true
     attributes:
       axis_name:
         name: axis_name
@@ -1148,6 +1149,7 @@ classes:
         domain_of:
         - Axis
         range: string
+        required: true
       axis_unit:
         name: axis_unit
         description: The unit of the axis

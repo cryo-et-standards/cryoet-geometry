@@ -2,11 +2,13 @@ name: coordinate_systems
 id: https://w3id.org/cetmd/coordinate_systems
 version: 0.0.1
 description: Schema for cryoET alignments
-imports:
-- linkml:types
+
 prefixes:
   linkml: https://w3id.org/linkml/
   coordinate_systems: https://w3id.org/cetmd/coordinate_systems/
+
+imports:
+- linkml:types
 
 default_prefix: coordinate_systems
 
@@ -29,6 +31,9 @@ classes:
     - axis_name
     - axis_unit
     - axis_type
+    slot_usage:
+      axis_name:
+        required: true
 #     attributes:
 #       axis_name:
 #  #       exact_mappings:

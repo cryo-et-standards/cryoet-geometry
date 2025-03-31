@@ -23,8 +23,8 @@ URI: [https://w3id.org/cetmd/entities/:origin2D](https://w3id.org/cetmd/entities
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PointMatrixSet2D](PointMatrixSet2D.md) | A set of 2D points with an associated rotation matrix |  no  |
 | [PointVectorSet2D](PointVectorSet2D.md) | A set of 2D points with an associated direction vector |  no  |
+| [PointMatrixSet2D](PointMatrixSet2D.md) | A set of 2D points with an associated rotation matrix |  no  |
 | [PointSet2D](PointSet2D.md) | A set of 2D point annotations |  no  |
 
 

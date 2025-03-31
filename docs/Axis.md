@@ -46,7 +46,7 @@ URI: [https://w3id.org/cetmd/entities/:Axis](https://w3id.org/cetmd/entities/:Ax
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [axis_name](axis_name.md) | 0..1 <br/> [String](String.md) | The name of the axis | direct |
+| [axis_name](axis_name.md) | 1 <br/> [String](String.md) | The name of the axis | direct |
 | [axis_unit](axis_unit.md) | 0..1 <br/> [String](String.md) | The unit of the axis | direct |
 | [axis_type](axis_type.md) | 0..1 <br/> [AxisType](AxisType.md) | The type of axis | direct |
 
@@ -109,6 +109,10 @@ slots:
 - axis_name
 - axis_unit
 - axis_type
+slot_usage:
+  axis_name:
+    name: axis_name
+    required: true
 
 ```
 </details>
@@ -120,6 +124,10 @@ slots:
 name: Axis
 description: An axis in a coordinate system
 from_schema: https://w3id.org/cetmd/entities
+slot_usage:
+  axis_name:
+    name: axis_name
+    required: true
 attributes:
   axis_name:
     name: axis_name
@@ -131,6 +139,7 @@ attributes:
     domain_of:
     - Axis
     range: string
+    required: true
   axis_unit:
     name: axis_unit
     description: The unit of the axis

@@ -5,9 +5,9 @@ description: Schema for cryoET geometry
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  image_entities: https://w3id.org/cetmd/image_entities/
+#  image_entities: https://w3id.org/cetmd/image_entities/
 #  entities: https://w3id.org/cetmd/entities/
-  annotation: https://w3id.org/cetmd/annotation/
+#  annotation: https://w3id.org/cetmd/annotation/
 
 
 #default_prefix: entities
@@ -17,6 +17,10 @@ imports:
 - ./image_entities
 - ./annotation
 - ./alignment
+- ./acquisition
+- ./custom_types
+- ./instrument
+- ./tomography
 
 classes:
   Region:
@@ -81,6 +85,17 @@ classes:
         description: The averages in the dataset
         range: Average
         multivalued: true
+
+  DataAcquisition:
+    description: information about the instrument and the data collection itself
+    attributes:
+      instrument:
+        range: Instrument
+        description: Contains information regarding instrument constants
+      acquisition:
+        range: AcquisitionTomo
+        description: Contains details on data collection parameters
+    
 
 slots:
   name:

@@ -1,0 +1,71 @@
+id: https://w3id.org/osc-em/instrument
+name: OSCEMInstrument
+description: >
+  LinkML schema for electron microscopy sample and author-related metadata,
+  broadly following the EMDB standard with some additions.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  instrument: https://w3id.org/osc-em/instrument
+
+imports:
+  - linkml:types
+  - ./custom_types
+
+#default_prefix: instrument
+
+classes:
+  Instrument:
+    description: Instrument values, mostly constant across a data collection.
+    slots:
+    - microscope
+    - illumination
+    - imaging
+    - electron_source
+    - acceleration_voltage
+    - c2_aperture
+    - cs
+    slot_usage:
+      microscope:
+        required: true
+      illumination:
+        required: true
+      imaging:
+        required: true
+      electron_source:
+        required: true
+      acceleration_voltage:
+        required: true
+      cs:
+        required: true
+
+slots:
+  microscope:
+    description: Name/Type of the Microscope
+    range: string
+  illumination:
+    description: Mode of illumination used during data collection
+    range: string
+  imaging:
+    description: Mode of imaging used during data collection
+    range: string
+  electron_source:
+    description: Type of electron source used in the microscope, such as FEG
+    range: string
+  acceleration_voltage:
+    description: Voltage used for the electron acceleration, in kV
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  c2_aperture:
+    description: C2 aperture size used in data acquisition, in µm
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  cs:
+    description: Spherical aberration of the instrument, in mm
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI

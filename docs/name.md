@@ -23,17 +23,17 @@ URI: [https://w3id.org/cetmd/entities/:name](https://w3id.org/cetmd/entities/:na
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ProjectionAlignment](ProjectionAlignment.md) | The tomographic alignment for a single projection |  no  |
-| [Scale](Scale.md) | A scaling transformation |  no  |
-| [Identity](Identity.md) | The identity transformation |  no  |
-| [Translation](Translation.md) | A translation transformation |  no  |
-| [Dataset](Dataset.md) | A dataset |  no  |
-| [Affine](Affine.md) | An affine transformation |  no  |
+| [Average](Average.md) | A particle averaging experiment |  no  |
 | [MapAxis](MapAxis.md) | Axis permutation transformation |  no  |
 | [Sequence](Sequence.md) | A sequence of transformations |  no  |
+| [Identity](Identity.md) | The identity transformation |  no  |
+| [Dataset](Dataset.md) | A dataset |  no  |
+| [Affine](Affine.md) | An affine transformation |  no  |
 | [CoordinateTransformation](CoordinateTransformation.md) | A coordinate transformation |  no  |
 | [CoordinateSystem](CoordinateSystem.md) | A coordinate system |  no  |
-| [Average](Average.md) | A particle averaging experiment |  no  |
+| [ProjectionAlignment](ProjectionAlignment.md) | The tomographic alignment for a single projection |  no  |
+| [Translation](Translation.md) | A translation transformation |  no  |
+| [Scale](Scale.md) | A scaling transformation |  no  |
 
 
 

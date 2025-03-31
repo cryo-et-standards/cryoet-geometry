@@ -18,14 +18,14 @@ URI: [https://w3id.org/cetmd/entities/:output](https://w3id.org/cetmd/entities/:
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Scale](Scale.md) | A scaling transformation |  no  |
-| [Identity](Identity.md) | The identity transformation |  no  |
-| [Translation](Translation.md) | A translation transformation |  no  |
-| [Affine](Affine.md) | An affine transformation |  no  |
 | [MapAxis](MapAxis.md) | Axis permutation transformation |  no  |
 | [Sequence](Sequence.md) | A sequence of transformations |  no  |
+| [Identity](Identity.md) | The identity transformation |  no  |
+| [Affine](Affine.md) | An affine transformation |  no  |
 | [CoordinateTransformation](CoordinateTransformation.md) | A coordinate transformation |  no  |
 | [ProjectionAlignment](ProjectionAlignment.md) | The tomographic alignment for a single projection |  no  |
+| [Translation](Translation.md) | A translation transformation |  no  |
+| [Scale](Scale.md) | A scaling transformation |  no  |
 
 
 
