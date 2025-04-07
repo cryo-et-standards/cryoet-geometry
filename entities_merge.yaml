@@ -1,0 +1,4713 @@
+name: entities
+description: Schema for cryoET geometry
+id: https://w3id.org/cetmd/entities
+version: 0.0.1
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  xsd:
+    prefix_prefix: xsd
+    prefix_reference: http://www.w3.org/2001/XMLSchema#
+  shex:
+    prefix_prefix: shex
+    prefix_reference: http://www.w3.org/ns/shex#
+  schema:
+    prefix_prefix: schema
+    prefix_reference: http://schema.org/
+  image:
+    prefix_prefix: image
+    prefix_reference: https://w3id.org/cetmd/image/
+  coordinate_systems:
+    prefix_prefix: coordinate_systems
+    prefix_reference: https://w3id.org/cetmd/coordinate_systems/
+  coord_transforms:
+    prefix_prefix: coord_transforms
+    prefix_reference: https://w3id.org/cetmd/coord_transforms/
+  image_entities:
+    prefix_prefix: image_entities
+    prefix_reference: https://w3id.org/cetmd/image_entities/
+  annotations:
+    prefix_prefix: annotations
+    prefix_reference: https://w3id.org/cetmd/annotation/
+  alignment:
+    prefix_prefix: alignment
+    prefix_reference: https://w3id.org/cetmd/alignment/
+default_prefix: https://w3id.org/cetmd/entities/
+types:
+  string:
+    name: string
+    description: A character string
+    notes:
+    - In RDF serializations, a slot with range of string is treated as a literal or
+      type xsd:string.   If you are authoring schemas in LinkML YAML, the type is
+      referenced with the lower case "string".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:Text
+    base: str
+    uri: xsd:string
+  integer:
+    name: integer
+    description: An integer
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "integer".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:Integer
+    base: int
+    uri: xsd:integer
+  boolean:
+    name: boolean
+    description: A binary (true or false) value
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "boolean".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:Boolean
+    base: Bool
+    uri: xsd:boolean
+    repr: bool
+  float:
+    name: float
+    description: A real number that conforms to the xsd:float specification
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "float".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:Float
+    base: float
+    uri: xsd:float
+  double:
+    name: double
+    description: A real number that conforms to the xsd:double specification
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "double".
+    from_schema: https://w3id.org/cetmd/entities
+    close_mappings:
+    - schema:Float
+    base: float
+    uri: xsd:double
+  decimal:
+    name: decimal
+    description: A real number with arbitrary precision that conforms to the xsd:decimal
+      specification
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "decimal".
+    from_schema: https://w3id.org/cetmd/entities
+    broad_mappings:
+    - schema:Number
+    base: Decimal
+    uri: xsd:decimal
+  time:
+    name: time
+    description: A time object represents a (local) time of day, independent of any
+      particular day
+    notes:
+    - URI is dateTime because OWL reasoners do not work with straight date or time
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "time".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:Time
+    base: XSDTime
+    uri: xsd:time
+    repr: str
+  date:
+    name: date
+    description: a date (year, month and day) in an idealized calendar
+    notes:
+    - URI is dateTime because OWL reasoners don't work with straight date or time
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "date".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:Date
+    base: XSDDate
+    uri: xsd:date
+    repr: str
+  datetime:
+    name: datetime
+    description: The combination of a date and time
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "datetime".
+    from_schema: https://w3id.org/cetmd/entities
+    exact_mappings:
+    - schema:DateTime
+    base: XSDDateTime
+    uri: xsd:dateTime
+    repr: str
+  date_or_datetime:
+    name: date_or_datetime
+    description: Either a date or a datetime
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "date_or_datetime".
+    from_schema: https://w3id.org/cetmd/entities
+    base: str
+    uri: linkml:DateOrDatetime
+    repr: str
+  uriorcurie:
+    name: uriorcurie
+    description: a URI or a CURIE
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "uriorcurie".
+    from_schema: https://w3id.org/cetmd/entities
+    base: URIorCURIE
+    uri: xsd:anyURI
+    repr: str
+  curie:
+    name: curie
+    conforms_to: https://www.w3.org/TR/curie/
+    description: a compact URI
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "curie".
+    comments:
+    - in RDF serializations this MUST be expanded to a URI
+    - in non-RDF serializations MAY be serialized as the compact representation
+    from_schema: https://w3id.org/cetmd/entities
+    base: Curie
+    uri: xsd:string
+    repr: str
+  uri:
+    name: uri
+    conforms_to: https://www.ietf.org/rfc/rfc3987.txt
+    description: a complete URI
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "uri".
+    comments:
+    - in RDF serializations a slot with range of uri is treated as a literal or type
+      xsd:anyURI unless it is an identifier or a reference to an identifier, in which
+      case it is translated directly to a node
+    from_schema: https://w3id.org/cetmd/entities
+    close_mappings:
+    - schema:URL
+    base: URI
+    uri: xsd:anyURI
+    repr: str
+  ncname:
+    name: ncname
+    description: Prefix part of CURIE
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "ncname".
+    from_schema: https://w3id.org/cetmd/entities
+    base: NCName
+    uri: xsd:string
+    repr: str
+  objectidentifier:
+    name: objectidentifier
+    description: A URI or CURIE that represents an object in the model.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "objectidentifier".
+    comments:
+    - Used for inheritance and type checking
+    from_schema: https://w3id.org/cetmd/entities
+    base: ElementIdentifier
+    uri: shex:iri
+    repr: str
+  nodeidentifier:
+    name: nodeidentifier
+    description: A URI, CURIE or BNODE that represents a node in a model.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "nodeidentifier".
+    from_schema: https://w3id.org/cetmd/entities
+    base: NodeIdentifier
+    uri: shex:nonLiteral
+    repr: str
+  jsonpointer:
+    name: jsonpointer
+    conforms_to: https://datatracker.ietf.org/doc/html/rfc6901
+    description: A string encoding a JSON Pointer. The value of the string MUST conform
+      to JSON Point syntax and SHOULD dereference to a valid object within the current
+      instance document when encoded in tree form.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "jsonpointer".
+    from_schema: https://w3id.org/cetmd/entities
+    base: str
+    uri: xsd:string
+    repr: str
+  jsonpath:
+    name: jsonpath
+    conforms_to: https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html
+    description: A string encoding a JSON Path. The value of the string MUST conform
+      to JSON Point syntax and SHOULD dereference to zero or more valid objects within
+      the current instance document when encoded in tree form.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "jsonpath".
+    from_schema: https://w3id.org/cetmd/entities
+    base: str
+    uri: xsd:string
+    repr: str
+  sparqlpath:
+    name: sparqlpath
+    conforms_to: https://www.w3.org/TR/sparql11-query/#propertypaths
+    description: A string encoding a SPARQL Property Path. The value of the string
+      MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects
+      within the current instance document when encoded as RDF.
+    notes:
+    - If you are authoring schemas in LinkML YAML, the type is referenced with the
+      lower case "sparqlpath".
+    from_schema: https://w3id.org/cetmd/entities
+    base: str
+    uri: xsd:string
+    repr: str
+enums:
+  AxisType:
+    name: AxisType
+    description: The type of axis
+    from_schema: https://w3id.org/cetmd/entities
+    permissible_values:
+      space:
+        text: space
+        description: A spatial axis
+      array:
+        text: array
+        description: An array axis
+  TransformationType:
+    name: TransformationType
+    from_schema: https://w3id.org/cetmd/entities
+    permissible_values:
+      identity:
+        text: identity
+        description: The identity transformation.
+      map_axis:
+        text: map_axis
+        description: Axis permutation transformation
+      translation:
+        text: translation
+        description: A translation transformation.
+      scale:
+        text: scale
+        description: A scaling transformation.
+      affine:
+        text: affine
+        description: An affine transformation
+      sequence:
+        text: sequence
+        description: A sequence of transformations
+slots:
+  name:
+    name: name
+    description: The name of a given entry
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Average
+    - Dataset
+    - CoordinateSystem
+    - CoordinateTransformation
+    range: string
+  annotations:
+    name: annotations
+    description: The annotations
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Region
+    - Average
+    range: Annotation
+    multivalued: true
+  width:
+    name: width
+    description: The width of the image (x-axis) in pixels
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Image2D
+    - Image3D
+    - GainFile
+    - DefectFile
+    - MovieFrame
+    - ProjectionImage
+    - SubProjectionImage
+    - Tomogram
+    - ParticleMap
+    - SegmentationMask2D
+    - SegmentationMask3D
+    - ProbabilityMap2D
+    range: integer
+  height:
+    name: height
+    description: The height of the image (y-axis) in pixels
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Image2D
+    - Image3D
+    - GainFile
+    - DefectFile
+    - MovieFrame
+    - ProjectionImage
+    - SubProjectionImage
+    - Tomogram
+    - ParticleMap
+    - SegmentationMask2D
+    - SegmentationMask3D
+    - ProbabilityMap2D
+    range: integer
+  depth:
+    name: depth
+    description: The depth of the image (z-axis) in pixels
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Image3D
+    - Tomogram
+    - ParticleMap
+    - SegmentationMask3D
+    range: integer
+  coordinate_systems:
+    name: coordinate_systems
+    description: Named coordinate systems for this entity
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Image2D
+    - Image3D
+    - CoordMetaMixin
+    - GainFile
+    - DefectFile
+    - MovieFrame
+    - ProjectionImage
+    - SubProjectionImage
+    - Tomogram
+    - ParticleMap
+    - SegmentationMask2D
+    - SegmentationMask3D
+    - ProbabilityMap2D
+    - ProbabilityMap3D
+    - PointSet2D
+    - PointSet3D
+    - PointVectorSet2D
+    - PointVectorSet3D
+    - PointMatrixSet2D
+    - PointMatrixSet3D
+    range: CoordinateSystem
+    multivalued: true
+  coordinate_transformations:
+    name: coordinate_transformations
+    description: Named coordinate systems for this entity
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Image2D
+    - Image3D
+    - CoordMetaMixin
+    - GainFile
+    - DefectFile
+    - MovieFrame
+    - ProjectionImage
+    - SubProjectionImage
+    - Tomogram
+    - ParticleMap
+    - SegmentationMask2D
+    - SegmentationMask3D
+    - ProbabilityMap2D
+    - ProbabilityMap3D
+    - PointSet2D
+    - PointSet3D
+    - PointVectorSet2D
+    - PointVectorSet3D
+    - PointMatrixSet2D
+    - PointMatrixSet3D
+    range: CoordinateTransformation
+    multivalued: true
+  images2D:
+    name: images2D
+    description: The images in the stack
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - ImageStack2D
+    range: Image2D
+    multivalued: true
+  images3D:
+    name: images3D
+    description: The images in the stack
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - ImageStack3D
+    range: Image3D
+    multivalued: true
+  axis_name:
+    name: axis_name
+    description: The name of the axis
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Axis
+    range: string
+  axis_unit:
+    name: axis_unit
+    description: The unit of the axis
+    from_schema: https://w3id.org/cetmd/entities
+    ifabsent: angstrom
+    domain_of:
+    - Axis
+    range: string
+  axis_type:
+    name: axis_type
+    description: The type of axis
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - Axis
+    range: AxisType
+  transformation_type:
+    name: transformation_type
+    description: The type of transformation
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - CoordinateTransformation
+    - Identity
+    - MapAxis
+    - Translation
+    - Scale
+    - Affine
+    - Sequence
+    range: TransformationType
+  path:
+    name: path
+    description: Path to a file.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - GainFile
+    - DefectFile
+    - MovieFrame
+    - MovieStack
+    - ProjectionImage
+    - TiltSeries
+    - Tomogram
+    - ParticleMap
+    - Annotation
+    - SubProjectionImage
+    - SegmentationMask2D
+    - SegmentationMask3D
+    - ProbabilityMap2D
+    - ProbabilityMap3D
+    - PointSet2D
+    - PointSet3D
+    - PointVectorSet2D
+    - PointVectorSet3D
+    - PointMatrixSet2D
+    - PointMatrixSet3D
+    range: string
+  section:
+    name: section
+    description: 0-based section index to the entity inside a stack.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - MovieFrame
+    - ProjectionImage
+    range: integer
+  nominal_tilt_angle:
+    name: nominal_tilt_angle
+    description: The tilt angle reported by the microscope
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - AcquisitionMetadataMixin
+    - MovieFrame
+    - ProjectionImage
+    range: float
+  accumulated_dose:
+    name: accumulated_dose
+    description: The pre-exposure up to this image in e-/A^2
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - AcquisitionMetadataMixin
+    - MovieFrame
+    - ProjectionImage
+    range: float
+  defocus_u:
+    name: defocus_u
+    description: Estimated defocus U for this image in Angstrom, underfocus positive.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - CTFMetadata
+    range: float
+  defocus_v:
+    name: defocus_v
+    description: Estimated defocus V for this image in Angstrom, underfocus positive.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - CTFMetadata
+    range: float
+  defocus_angle:
+    name: defocus_angle
+    description: Estimated angle of astigmatism.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - CTFMetadata
+    range: float
+  particle_index:
+    name: particle_index
+    description: Index of a particle inside a tomogram.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - SubProjectionImage
+    range: integer
+  ctf_metadata:
+    name: ctf_metadata
+    description: A set of CTF patameters for an image.
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - AcquisitionMetadataMixin
+    - MovieFrame
+    - ProjectionImage
+    range: CTFMetadata
+  images_movie:
+    name: images_movie
+    description: The movie frames in the stack
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - MovieStack
+    range: MovieFrame
+    multivalued: true
+  images_tilt:
+    name: images_tilt
+    description: The projections in the stack
+    from_schema: https://w3id.org/cetmd/entities
+    domain_of:
+    - TiltSeries
+    range: ProjectionImage
+    multivalued: true
+  origin2D:
+    name: origin2D
+    description: Location on a 2D image (Nx2).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 2
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xy
+        exact_cardinality: 2
+    domain_of:
+    - PointSet2D
+    - PointVectorSet2D
+    - PointMatrixSet2D
+    range: float
+  translation2D:
+    name: translation2D
+    description: Offset from the origin of a point on a 2D image (Nx2).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 2
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xy
+        exact_cardinality: 2
+    range: float
+  vector2D:
+    name: vector2D
+    description: Orientation vector associated with a point on a 2D image (Nx2).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 2
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xy
+        exact_cardinality: 2
+    domain_of:
+    - PointVectorSet2D
+    range: float
+  matrix2D:
+    name: matrix2D
+    description: Rotation matrix associated with a point on a 2D image (Nx2x2).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 3
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xy
+        exact_cardinality: 2
+      - alias: xy
+        exact_cardinality: 2
+    domain_of:
+    - PointMatrixSet2D
+    range: float
+  origin3D:
+    name: origin3D
+    description: Location on a 3D image (Nx3).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 2
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xyz
+        exact_cardinality: 3
+    domain_of:
+    - PointSet3D
+    - PointVectorSet3D
+    - PointMatrixSet3D
+    range: float
+  translation3D:
+    name: translation3D
+    description: Offset from the origin of a point on a 3D image (Nx3).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 2
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xyz
+        exact_cardinality: 3
+    range: float
+  vector3D:
+    name: vector3D
+    description: Orientation vector associated with a point on a 3D image (Nx3).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 2
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xyz
+        exact_cardinality: 3
+    domain_of:
+    - PointVectorSet3D
+    range: float
+  matrix3D:
+    name: matrix3D
+    description: Rotation matrix associated with a point on a 3D image (Nx3x3).
+    from_schema: https://w3id.org/cetmd/entities
+    array:
+      exact_number_dimensions: 3
+      dimensions:
+      - alias: N
+        minimum_cardinality: 1
+      - alias: xyz
+        exact_cardinality: 3
+      - alias: xyz
+        exact_cardinality: 3
+    domain_of:
+    - PointMatrixSet3D
+    range: float
+classes:
+  Region:
+    name: Region
+    description: Raw data (movie stacks) and derived data (tilt series, tomograms,
+      annotations) from a single region of a specimen.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - annotations
+    attributes:
+      movie_stack_collections:
+        name: movie_stack_collections
+        description: The movie stack
+        from_schema: https://w3id.org/cetmd/entities
+        alias: movie_stack_collections
+        owner: Region
+        domain_of:
+        - Region
+        range: MovieStackCollection
+        multivalued: true
+      tilt_series:
+        name: tilt_series
+        description: The tilt series
+        from_schema: https://w3id.org/cetmd/entities
+        alias: tilt_series
+        owner: Region
+        domain_of:
+        - Region
+        range: TiltSeries
+        multivalued: true
+      alignments:
+        name: alignments
+        description: The alignments
+        from_schema: https://w3id.org/cetmd/entities
+        alias: alignments
+        owner: Region
+        domain_of:
+        - Region
+        range: Alignment
+        multivalued: true
+      tomograms:
+        name: tomograms
+        description: The tomograms
+        from_schema: https://w3id.org/cetmd/entities
+        alias: tomograms
+        owner: Region
+        domain_of:
+        - Region
+        range: Tomogram
+        multivalued: true
+      annotations:
+        name: annotations
+        description: The annotations
+        from_schema: https://w3id.org/cetmd/entities
+        alias: annotations
+        owner: Region
+        domain_of:
+        - Region
+        - Average
+        range: Annotation
+        multivalued: true
+  Average:
+    name: Average
+    description: A particle averaging experiment.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - name
+    - annotations
+    attributes:
+      particle_maps:
+        name: particle_maps
+        description: The particle maps
+        from_schema: https://w3id.org/cetmd/entities
+        alias: particle_maps
+        owner: Average
+        domain_of:
+        - Average
+        range: ParticleMap
+        multivalued: true
+      name:
+        name: name
+        description: The name of a given entry
+        from_schema: https://w3id.org/cetmd/entities
+        alias: name
+        owner: Average
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        range: string
+      annotations:
+        name: annotations
+        description: The annotations
+        from_schema: https://w3id.org/cetmd/entities
+        alias: annotations
+        owner: Average
+        domain_of:
+        - Region
+        - Average
+        range: Annotation
+        multivalued: true
+  MovieStackCollection:
+    name: MovieStackCollection
+    description: A collection of movie stacks using the same gain and defect files.
+    from_schema: https://w3id.org/cetmd/entities
+    attributes:
+      movie_stacks:
+        name: movie_stacks
+        description: The movie stacks in the collection
+        from_schema: https://w3id.org/cetmd/entities
+        alias: movie_stacks
+        owner: MovieStackCollection
+        domain_of:
+        - MovieStackCollection
+        range: MovieStackSeries
+        multivalued: true
+      gain_file:
+        name: gain_file
+        description: The gain file for the movie stacks
+        from_schema: https://w3id.org/cetmd/entities
+        alias: gain_file
+        owner: MovieStackCollection
+        domain_of:
+        - MovieStackCollection
+        range: GainFile
+      defect_file:
+        name: defect_file
+        description: The defect file for the movie stacks
+        from_schema: https://w3id.org/cetmd/entities
+        alias: defect_file
+        owner: MovieStackCollection
+        domain_of:
+        - MovieStackCollection
+        range: DefectFile
+  Dataset:
+    name: Dataset
+    description: A dataset
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - name
+    attributes:
+      regions:
+        name: regions
+        description: The regions in the dataset
+        from_schema: https://w3id.org/cetmd/entities
+        alias: regions
+        owner: Dataset
+        domain_of:
+        - Dataset
+        range: Region
+        multivalued: true
+      averages:
+        name: averages
+        description: The averages in the dataset
+        from_schema: https://w3id.org/cetmd/entities
+        alias: averages
+        owner: Dataset
+        domain_of:
+        - Dataset
+        range: Average
+        multivalued: true
+      name:
+        name: name
+        description: The name of a given entry
+        from_schema: https://w3id.org/cetmd/entities
+        alias: name
+        owner: Dataset
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        range: string
+  Image2D:
+    name: Image2D
+    description: A 2D image.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - width
+    - height
+    - coordinate_systems
+    - coordinate_transformations
+    attributes:
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: Image2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: Image2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: Image2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: Image2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  Image3D:
+    name: Image3D
+    description: A 3D image.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - width
+    - height
+    - depth
+    - coordinate_systems
+    - coordinate_transformations
+    attributes:
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: Image3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: Image3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      depth:
+        name: depth
+        description: The depth of the image (z-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: depth
+        owner: Image3D
+        domain_of:
+        - Image3D
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask3D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: Image3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: Image3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  ImageStack2D:
+    name: ImageStack2D
+    description: A stack of 2D images.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - images2D
+    attributes:
+      images2D:
+        name: images2D
+        description: The images in the stack
+        from_schema: https://w3id.org/cetmd/entities
+        alias: images2D
+        owner: ImageStack2D
+        domain_of:
+        - ImageStack2D
+        range: Image2D
+        multivalued: true
+  ImageStack3D:
+    name: ImageStack3D
+    description: A stack of 3D images.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - images3D
+    attributes:
+      images3D:
+        name: images3D
+        description: The images in the stack
+        from_schema: https://w3id.org/cetmd/entities
+        alias: images3D
+        owner: ImageStack3D
+        domain_of:
+        - ImageStack3D
+        range: Image3D
+        multivalued: true
+  Axis:
+    name: Axis
+    description: An axis in a coordinate system
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - axis_name
+    - axis_unit
+    - axis_type
+    slot_usage:
+      axis_name:
+        name: axis_name
+        required: true
+    attributes:
+      axis_name:
+        name: axis_name
+        description: The name of the axis
+        from_schema: https://w3id.org/cetmd/entities
+        alias: axis_name
+        owner: Axis
+        domain_of:
+        - Axis
+        range: string
+        required: true
+      axis_unit:
+        name: axis_unit
+        description: The unit of the axis
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: angstrom
+        alias: axis_unit
+        owner: Axis
+        domain_of:
+        - Axis
+        range: string
+      axis_type:
+        name: axis_type
+        description: The type of axis
+        from_schema: https://w3id.org/cetmd/entities
+        alias: axis_type
+        owner: Axis
+        domain_of:
+        - Axis
+        range: AxisType
+  CoordinateSystem:
+    name: CoordinateSystem
+    description: A coordinate system
+    from_schema: https://w3id.org/cetmd/entities
+    attributes:
+      name:
+        name: name
+        description: The name of the coordinate system
+        from_schema: https://w3id.org/cetmd/coordinate_systems
+        alias: name
+        owner: CoordinateSystem
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        range: string
+        required: true
+      axes:
+        name: axes
+        description: The axes of the coordinate system
+        from_schema: https://w3id.org/cetmd/coordinate_systems
+        alias: axes
+        owner: CoordinateSystem
+        domain_of:
+        - CoordinateSystem
+        range: Axis
+        required: true
+        multivalued: true
+  CoordinateTransformation:
+    name: CoordinateTransformation
+    description: A coordinate transformation
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - transformation_type
+    attributes:
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: CoordinateTransformation
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: CoordinateTransformation
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: CoordinateTransformation
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        alias: transformation_type
+        owner: CoordinateTransformation
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+  Identity:
+    name: Identity
+    description: The identity transformation
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        name: transformation_type
+        ifabsent: identity
+    attributes:
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: identity
+        alias: transformation_type
+        owner: Identity
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: Identity
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: Identity
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: Identity
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+  AxisNameMapping:
+    name: AxisNameMapping
+    description: Axis name to Axis name mapping
+    from_schema: https://w3id.org/cetmd/entities
+    attributes:
+      axis1_name:
+        name: axis1_name
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: axis1_name
+        owner: AxisNameMapping
+        domain_of:
+        - AxisNameMapping
+        range: string
+      axis2_name:
+        name: axis2_name
+        description: The mapping of the axis names
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: axis2_name
+        owner: AxisNameMapping
+        domain_of:
+        - AxisNameMapping
+        range: string
+  MapAxis:
+    name: MapAxis
+    description: Axis permutation transformation
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        name: transformation_type
+        ifabsent: map_axis
+    attributes:
+      map_axis:
+        name: map_axis
+        description: The permutation of the axes
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: map_axis
+        owner: MapAxis
+        domain_of:
+        - MapAxis
+        range: AxisNameMapping
+        multivalued: true
+        inlined: true
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: map_axis
+        alias: transformation_type
+        owner: MapAxis
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: MapAxis
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: MapAxis
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: MapAxis
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+  Translation:
+    name: Translation
+    description: A translation transformation
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        name: transformation_type
+        ifabsent: translation
+    attributes:
+      translation:
+        name: translation
+        description: The translation vector
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: translation
+        owner: Translation
+        domain_of:
+        - Translation
+        range: float
+        multivalued: true
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: translation
+        alias: transformation_type
+        owner: Translation
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: Translation
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: Translation
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: Translation
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+  Scale:
+    name: Scale
+    description: A scaling transformation
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        name: transformation_type
+        ifabsent: scale
+    attributes:
+      scale:
+        name: scale
+        description: The scaling vector
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: scale
+        owner: Scale
+        domain_of:
+        - Scale
+        range: float
+        multivalued: true
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: scale
+        alias: transformation_type
+        owner: Scale
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: Scale
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: Scale
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: Scale
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+  Affine:
+    name: Affine
+    description: An affine transformation
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        name: transformation_type
+        ifabsent: affine
+    attributes:
+      affine:
+        name: affine
+        description: The affine matrix
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: exact_card
+            exact_cardinality: 3
+          - alias: exact_card
+            exact_cardinality: 3
+        alias: affine
+        owner: Affine
+        domain_of:
+        - Affine
+        range: integer
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: affine
+        alias: transformation_type
+        owner: Affine
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: Affine
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: Affine
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: Affine
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+  Sequence:
+    name: Sequence
+    description: A sequence of transformations
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        name: transformation_type
+        ifabsent: sequence
+    attributes:
+      sequence:
+        name: sequence
+        description: The sequence of transformations
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: sequence
+        owner: Sequence
+        domain_of:
+        - Sequence
+        - ProjectionAlignment
+        range: CoordinateTransformation
+        multivalued: true
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: sequence
+        alias: transformation_type
+        owner: Sequence
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: Sequence
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: input
+        owner: Sequence
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: output
+        owner: Sequence
+        domain_of:
+        - CoordinateTransformation
+        - ProjectionAlignment
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        range: string
+  CTFMetadata:
+    name: CTFMetadata
+    description: A set of CTF patameters for an image.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - defocus_u
+    - defocus_v
+    - defocus_angle
+    attributes:
+      defocus_u:
+        name: defocus_u
+        description: Estimated defocus U for this image in Angstrom, underfocus positive.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: defocus_u
+        owner: CTFMetadata
+        domain_of:
+        - CTFMetadata
+        range: float
+      defocus_v:
+        name: defocus_v
+        description: Estimated defocus V for this image in Angstrom, underfocus positive.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: defocus_v
+        owner: CTFMetadata
+        domain_of:
+        - CTFMetadata
+        range: float
+      defocus_angle:
+        name: defocus_angle
+        description: Estimated angle of astigmatism.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: defocus_angle
+        owner: CTFMetadata
+        domain_of:
+        - CTFMetadata
+        range: float
+  AcquisitionMetadataMixin:
+    name: AcquisitionMetadataMixin
+    description: Metadata concerning the acquisition process.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - nominal_tilt_angle
+    - accumulated_dose
+    - ctf_metadata
+    attributes:
+      nominal_tilt_angle:
+        name: nominal_tilt_angle
+        description: The tilt angle reported by the microscope
+        from_schema: https://w3id.org/cetmd/entities
+        alias: nominal_tilt_angle
+        owner: AcquisitionMetadataMixin
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      accumulated_dose:
+        name: accumulated_dose
+        description: The pre-exposure up to this image in e-/A^2
+        from_schema: https://w3id.org/cetmd/entities
+        alias: accumulated_dose
+        owner: AcquisitionMetadataMixin
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      ctf_metadata:
+        name: ctf_metadata
+        description: A set of CTF patameters for an image.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: ctf_metadata
+        owner: AcquisitionMetadataMixin
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: CTFMetadata
+  GainFile:
+    name: GainFile
+    description: A gain reference file.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Image2D
+    slots:
+    - path
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: GainFile
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: GainFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: GainFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: GainFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: GainFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  DefectFile:
+    name: DefectFile
+    description: A detector defect file.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Image2D
+    slots:
+    - path
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: DefectFile
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: DefectFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: DefectFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: DefectFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: DefectFile
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  MovieFrame:
+    name: MovieFrame
+    description: An individual movie frame
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Image2D
+    mixins:
+    - AcquisitionMetadataMixin
+    slots:
+    - path
+    - section
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: MovieFrame
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      section:
+        name: section
+        description: 0-based section index to the entity inside a stack.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: section
+        owner: MovieFrame
+        domain_of:
+        - MovieFrame
+        - ProjectionImage
+        range: integer
+      nominal_tilt_angle:
+        name: nominal_tilt_angle
+        description: The tilt angle reported by the microscope
+        from_schema: https://w3id.org/cetmd/entities
+        alias: nominal_tilt_angle
+        owner: MovieFrame
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      accumulated_dose:
+        name: accumulated_dose
+        description: The pre-exposure up to this image in e-/A^2
+        from_schema: https://w3id.org/cetmd/entities
+        alias: accumulated_dose
+        owner: MovieFrame
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      ctf_metadata:
+        name: ctf_metadata
+        description: A set of CTF patameters for an image.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: ctf_metadata
+        owner: MovieFrame
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: CTFMetadata
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: MovieFrame
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: MovieFrame
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: MovieFrame
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: MovieFrame
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  MovieStack:
+    name: MovieStack
+    description: A stack of movie frames.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - path
+    - images_movie
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: MovieStack
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      images_movie:
+        name: images_movie
+        description: The movie frames in the stack
+        from_schema: https://w3id.org/cetmd/entities
+        alias: images_movie
+        owner: MovieStack
+        domain_of:
+        - MovieStack
+        range: MovieFrame
+        multivalued: true
+  ProjectionImage:
+    name: ProjectionImage
+    description: A projection image.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Image2D
+    mixins:
+    - AcquisitionMetadataMixin
+    slots:
+    - path
+    - section
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: ProjectionImage
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      section:
+        name: section
+        description: 0-based section index to the entity inside a stack.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: section
+        owner: ProjectionImage
+        domain_of:
+        - MovieFrame
+        - ProjectionImage
+        range: integer
+      nominal_tilt_angle:
+        name: nominal_tilt_angle
+        description: The tilt angle reported by the microscope
+        from_schema: https://w3id.org/cetmd/entities
+        alias: nominal_tilt_angle
+        owner: ProjectionImage
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      accumulated_dose:
+        name: accumulated_dose
+        description: The pre-exposure up to this image in e-/A^2
+        from_schema: https://w3id.org/cetmd/entities
+        alias: accumulated_dose
+        owner: ProjectionImage
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      ctf_metadata:
+        name: ctf_metadata
+        description: A set of CTF patameters for an image.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: ctf_metadata
+        owner: ProjectionImage
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: CTFMetadata
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: ProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: ProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: ProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: ProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  MovieStackSeries:
+    name: MovieStackSeries
+    description: A group of movie stacks that belong to a single tilt series.
+    from_schema: https://w3id.org/cetmd/entities
+    attributes:
+      stacks:
+        name: stacks
+        description: The movie stacks.
+        from_schema: https://w3id.org/cetmd/image_entities
+        alias: stacks
+        owner: MovieStackSeries
+        domain_of:
+        - MovieStackSeries
+        range: MovieStack
+        multivalued: true
+  TiltSeries:
+    name: TiltSeries
+    description: A stack of projection images.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - images_tilt
+    - path
+    attributes:
+      images_tilt:
+        name: images_tilt
+        description: The projections in the stack
+        from_schema: https://w3id.org/cetmd/entities
+        alias: images_tilt
+        owner: TiltSeries
+        domain_of:
+        - TiltSeries
+        range: ProjectionImage
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: TiltSeries
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  SubProjectionImage:
+    name: SubProjectionImage
+    description: A croppecd projection image.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: ProjectionImage
+    slots:
+    - particle_index
+    attributes:
+      particle_index:
+        name: particle_index
+        description: Index of a particle inside a tomogram.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: particle_index
+        owner: SubProjectionImage
+        domain_of:
+        - SubProjectionImage
+        range: integer
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: SubProjectionImage
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      section:
+        name: section
+        description: 0-based section index to the entity inside a stack.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: section
+        owner: SubProjectionImage
+        domain_of:
+        - MovieFrame
+        - ProjectionImage
+        range: integer
+      nominal_tilt_angle:
+        name: nominal_tilt_angle
+        description: The tilt angle reported by the microscope
+        from_schema: https://w3id.org/cetmd/entities
+        alias: nominal_tilt_angle
+        owner: SubProjectionImage
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      accumulated_dose:
+        name: accumulated_dose
+        description: The pre-exposure up to this image in e-/A^2
+        from_schema: https://w3id.org/cetmd/entities
+        alias: accumulated_dose
+        owner: SubProjectionImage
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: float
+      ctf_metadata:
+        name: ctf_metadata
+        description: A set of CTF patameters for an image.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: ctf_metadata
+        owner: SubProjectionImage
+        domain_of:
+        - AcquisitionMetadataMixin
+        - MovieFrame
+        - ProjectionImage
+        range: CTFMetadata
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: SubProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: SubProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: SubProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: SubProjectionImage
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  Tomogram:
+    name: Tomogram
+    description: A 3D tomogram.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Image3D
+    slots:
+    - path
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: Tomogram
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: Tomogram
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: Tomogram
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      depth:
+        name: depth
+        description: The depth of the image (z-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: depth
+        owner: Tomogram
+        domain_of:
+        - Image3D
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask3D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: Tomogram
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: Tomogram
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  ParticleMap:
+    name: ParticleMap
+    description: A 3D particle density map.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Image3D
+    slots:
+    - path
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: ParticleMap
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: ParticleMap
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: ParticleMap
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      depth:
+        name: depth
+        description: The depth of the image (z-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: depth
+        owner: ParticleMap
+        domain_of:
+        - Image3D
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask3D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: ParticleMap
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: ParticleMap
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  CoordMetaMixin:
+    name: CoordMetaMixin
+    description: Coordinate system mixins for annotations.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - coordinate_systems
+    - coordinate_transformations
+    attributes:
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: CoordMetaMixin
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: CoordMetaMixin
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+  Annotation:
+    name: Annotation
+    description: A primitive annotation.
+    from_schema: https://w3id.org/cetmd/entities
+    slots:
+    - path
+    attributes:
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: Annotation
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  SegmentationMask2D:
+    name: SegmentationMask2D
+    description: An annotation image with categorical labels.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - Image2D
+    attributes:
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: SegmentationMask2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: SegmentationMask2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: SegmentationMask2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: SegmentationMask2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: SegmentationMask2D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  SegmentationMask3D:
+    name: SegmentationMask3D
+    description: An annotation volume with categorical labels.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - Image3D
+    attributes:
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: SegmentationMask3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: SegmentationMask3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      depth:
+        name: depth
+        description: The depth of the image (z-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: depth
+        owner: SegmentationMask3D
+        domain_of:
+        - Image3D
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask3D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: SegmentationMask3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: SegmentationMask3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: SegmentationMask3D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  ProbabilityMap2D:
+    name: ProbabilityMap2D
+    description: An annotation image with real-valued labels.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - Image2D
+    attributes:
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: ProbabilityMap2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: ProbabilityMap2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: ProbabilityMap2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: ProbabilityMap2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: ProbabilityMap2D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  ProbabilityMap3D:
+    name: ProbabilityMap3D
+    description: An annotation volume with real-valued labels.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - Image3D
+    attributes:
+      width:
+        name: width
+        description: The width of the image (x-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: width
+        owner: ProbabilityMap3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      height:
+        name: height
+        description: The height of the image (y-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: height
+        owner: ProbabilityMap3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        range: integer
+      depth:
+        name: depth
+        description: The depth of the image (z-axis) in pixels
+        from_schema: https://w3id.org/cetmd/entities
+        alias: depth
+        owner: ProbabilityMap3D
+        domain_of:
+        - Image3D
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask3D
+        range: integer
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: ProbabilityMap3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: ProbabilityMap3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: ProbabilityMap3D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  PointSet2D:
+    name: PointSet2D
+    description: A set of 2D point annotations.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    slots:
+    - origin2D
+    attributes:
+      origin2D:
+        name: origin2D
+        description: Location on a 2D image (Nx2).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xy
+            exact_cardinality: 2
+        alias: origin2D
+        owner: PointSet2D
+        domain_of:
+        - PointSet2D
+        - PointVectorSet2D
+        - PointMatrixSet2D
+        range: float
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: PointSet2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: PointSet2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: PointSet2D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  PointSet3D:
+    name: PointSet3D
+    description: A set of 3D point annotations.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    slots:
+    - origin3D
+    attributes:
+      origin3D:
+        name: origin3D
+        description: Location on a 3D image (Nx3).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xyz
+            exact_cardinality: 3
+        alias: origin3D
+        owner: PointSet3D
+        domain_of:
+        - PointSet3D
+        - PointVectorSet3D
+        - PointMatrixSet3D
+        range: float
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: PointSet3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: PointSet3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: PointSet3D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  PointVectorSet2D:
+    name: PointVectorSet2D
+    description: A set of 2D points with an associated direction vector.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    slots:
+    - origin2D
+    - vector2D
+    attributes:
+      origin2D:
+        name: origin2D
+        description: Location on a 2D image (Nx2).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xy
+            exact_cardinality: 2
+        alias: origin2D
+        owner: PointVectorSet2D
+        domain_of:
+        - PointSet2D
+        - PointVectorSet2D
+        - PointMatrixSet2D
+        range: float
+      vector2D:
+        name: vector2D
+        description: Orientation vector associated with a point on a 2D image (Nx2).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xy
+            exact_cardinality: 2
+        alias: vector2D
+        owner: PointVectorSet2D
+        domain_of:
+        - PointVectorSet2D
+        range: float
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: PointVectorSet2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: PointVectorSet2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: PointVectorSet2D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  PointVectorSet3D:
+    name: PointVectorSet3D
+    description: A set of 3D points with an associated direction vector.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    slots:
+    - origin3D
+    - vector3D
+    attributes:
+      origin3D:
+        name: origin3D
+        description: Location on a 3D image (Nx3).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xyz
+            exact_cardinality: 3
+        alias: origin3D
+        owner: PointVectorSet3D
+        domain_of:
+        - PointSet3D
+        - PointVectorSet3D
+        - PointMatrixSet3D
+        range: float
+      vector3D:
+        name: vector3D
+        description: Orientation vector associated with a point on a 3D image (Nx3).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xyz
+            exact_cardinality: 3
+        alias: vector3D
+        owner: PointVectorSet3D
+        domain_of:
+        - PointVectorSet3D
+        range: float
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: PointVectorSet3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: PointVectorSet3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: PointVectorSet3D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  PointMatrixSet2D:
+    name: PointMatrixSet2D
+    description: A set of 2D points with an associated rotation matrix.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    slots:
+    - origin2D
+    - matrix2D
+    attributes:
+      origin2D:
+        name: origin2D
+        description: Location on a 2D image (Nx2).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xy
+            exact_cardinality: 2
+        alias: origin2D
+        owner: PointMatrixSet2D
+        domain_of:
+        - PointSet2D
+        - PointVectorSet2D
+        - PointMatrixSet2D
+        range: float
+      matrix2D:
+        name: matrix2D
+        description: Rotation matrix associated with a point on a 2D image (Nx2x2).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 3
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xy
+            exact_cardinality: 2
+          - alias: xy
+            exact_cardinality: 2
+        alias: matrix2D
+        owner: PointMatrixSet2D
+        domain_of:
+        - PointMatrixSet2D
+        range: float
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: PointMatrixSet2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: PointMatrixSet2D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: PointMatrixSet2D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  PointMatrixSet3D:
+    name: PointMatrixSet3D
+    description: A set of 3D points with an associated rotation matrix.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    slots:
+    - origin3D
+    - matrix3D
+    attributes:
+      origin3D:
+        name: origin3D
+        description: Location on a 3D image (Nx3).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 2
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xyz
+            exact_cardinality: 3
+        alias: origin3D
+        owner: PointMatrixSet3D
+        domain_of:
+        - PointSet3D
+        - PointVectorSet3D
+        - PointMatrixSet3D
+        range: float
+      matrix3D:
+        name: matrix3D
+        description: Rotation matrix associated with a point on a 3D image (Nx3x3).
+        from_schema: https://w3id.org/cetmd/entities
+        array:
+          exact_number_dimensions: 3
+          dimensions:
+          - alias: N
+            minimum_cardinality: 1
+          - alias: xyz
+            exact_cardinality: 3
+          - alias: xyz
+            exact_cardinality: 3
+        alias: matrix3D
+        owner: PointMatrixSet3D
+        domain_of:
+        - PointMatrixSet3D
+        range: float
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: PointMatrixSet3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: PointMatrixSet3D
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: PointMatrixSet3D
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  TriMesh:
+    name: TriMesh
+    description: A mesh annotation.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Annotation
+    mixins:
+    - CoordMetaMixin
+    attributes:
+      coordinate_systems:
+        name: coordinate_systems
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_systems
+        owner: TriMesh
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateSystem
+        multivalued: true
+      coordinate_transformations:
+        name: coordinate_transformations
+        description: Named coordinate systems for this entity
+        from_schema: https://w3id.org/cetmd/entities
+        alias: coordinate_transformations
+        owner: TriMesh
+        domain_of:
+        - Image2D
+        - Image3D
+        - CoordMetaMixin
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - ProjectionImage
+        - SubProjectionImage
+        - Tomogram
+        - ParticleMap
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: CoordinateTransformation
+        multivalued: true
+      path:
+        name: path
+        description: Path to a file.
+        from_schema: https://w3id.org/cetmd/entities
+        alias: path
+        owner: TriMesh
+        domain_of:
+        - GainFile
+        - DefectFile
+        - MovieFrame
+        - MovieStack
+        - ProjectionImage
+        - TiltSeries
+        - Tomogram
+        - ParticleMap
+        - Annotation
+        - SubProjectionImage
+        - SegmentationMask2D
+        - SegmentationMask3D
+        - ProbabilityMap2D
+        - ProbabilityMap3D
+        - PointSet2D
+        - PointSet3D
+        - PointVectorSet2D
+        - PointVectorSet3D
+        - PointMatrixSet2D
+        - PointMatrixSet3D
+        range: string
+  ProjectionAlignment:
+    name: ProjectionAlignment
+    description: The tomographic alignment for a single projection.
+    from_schema: https://w3id.org/cetmd/entities
+    is_a: Sequence
+    attributes:
+      input:
+        name: input
+        description: The source coordinate system name
+        from_schema: https://w3id.org/cetmd/alignment/
+        alias: input
+        owner: ProjectionAlignment
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        - ProjectionAlignment
+        range: string
+      output:
+        name: output
+        description: The target coordinate system name
+        from_schema: https://w3id.org/cetmd/alignment/
+        alias: output
+        owner: ProjectionAlignment
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        - ProjectionAlignment
+        range: string
+      sequence:
+        name: sequence
+        description: The sequence of transformations
+        from_schema: https://w3id.org/cetmd/alignment/
+        alias: sequence
+        owner: ProjectionAlignment
+        domain_of:
+        - Sequence
+        - ProjectionAlignment
+        range: CoordinateTransformation
+        multivalued: true
+        maximum_cardinality: 2
+        any_of:
+        - range: Affine
+        - range: Translation
+      transformation_type:
+        name: transformation_type
+        description: The type of transformation
+        from_schema: https://w3id.org/cetmd/entities
+        ifabsent: sequence
+        alias: transformation_type
+        owner: ProjectionAlignment
+        domain_of:
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: TransformationType
+      name:
+        name: name
+        description: The name of the coordinate transformation
+        from_schema: https://w3id.org/cetmd/coord_transforms
+        alias: name
+        owner: ProjectionAlignment
+        domain_of:
+        - Average
+        - Dataset
+        - CoordinateSystem
+        - CoordinateTransformation
+        - Identity
+        - MapAxis
+        - Translation
+        - Scale
+        - Affine
+        - Sequence
+        range: string
+  Alignment:
+    name: Alignment
+    description: The tomographic alignment for a tilt series.
+    from_schema: https://w3id.org/cetmd/entities
+    attributes:
+      projection_alignments:
+        name: projection_alignments
+        description: alignment for a specific projection
+        from_schema: https://w3id.org/cetmd/alignment/
+        alias: projection_alignments
+        owner: Alignment
+        domain_of:
+        - Alignment
+        range: ProjectionAlignment
+        multivalued: true
+source_file: schema/linkml/entities.yaml
+

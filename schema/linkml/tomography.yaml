@@ -1,0 +1,44 @@
+id: https://w3id.org/osc-em/tomography
+name: TomoAdditionalFields
+description: Mixin for additional fields for tomography datasets
+
+prefixes:
+  types: https://w3id.org/osc-em/custom_types
+  tomo: https://w3id.org/osc-em/tomo
+
+#default_prefix: tomo
+
+imports:
+  - ./custom_types
+  - acquisition
+
+classes:
+  TiltAngle:
+    description: The min, max and increment of the tilt angle in a tomography session. Unit is degree.
+    is_a: Series
+    slot_usage:
+      minimal:
+        required: true
+      maximal:
+        required: true
+      increment:
+        required: true
+
+  AcquisitionTomo:
+    is_a: Acquisition
+    slots:
+      - tilt_axis_angle
+      - tilt_angle
+    slot_usage:
+      tilt_axis_angle:
+        required: true
+      tilt_angle:
+        required: true
+
+slots:
+  tilt_axis_angle:
+    range: float
+    description: The tilt axis angle of a tomography series
+  tilt_angle:
+    range: TiltAngle
+    description: The min, max and increment of the tilt angle in a tomography session. Unit is degree.

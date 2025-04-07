@@ -1,4 +1,4 @@
-name: CETMDCoordTransforms
+name: coordinate_transforms
 id: https://w3id.org/cetmd/coord_transforms
 version: 0.0.1
 description: Schema for cryoET alignments
@@ -15,6 +15,8 @@ imports:
 classes:
   CoordinateTransformation:
     description: A coordinate transformation
+    slots:
+    - transformation_type
     attributes:
       name:
         description: The name of the coordinate transformation
@@ -25,19 +27,17 @@ classes:
       output:
         description: The target coordinate system name
         range: string
-      type:
-        description: The type of transformation
-        range: TransformationType
 
 
   Identity:
     description: The identity transformation
     is_a: CoordinateTransformation
-    attributes:
-      type:
-        description: The type of transformation
-        range: TransformationType
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
         ifabsent: identity
+
 
 
   AxisNameMapping:
@@ -54,25 +54,28 @@ classes:
   MapAxis:
     description: Axis permutation transformation
     is_a: CoordinateTransformation
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
+        ifabsent: map_axis
     attributes:
-      type:
-        description: The type of transformation
-        range: TransformationType
-        ifabsent: mapAxis
-      mapAxis:
+      map_axis:
         description: The permutation of the axes
         range: AxisNameMapping
         inlined: true
         multivalued: true
 
+
   Translation:
     description: A translation transformation
     is_a: CoordinateTransformation
-    attributes:
-      type:
-        description: The type of transformation
-        range: TransformationType
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
         ifabsent: translation
+    attributes:
       translation:
         description: The translation vector
         range: float
@@ -81,11 +84,12 @@ classes:
   Scale:
     description: A scaling transformation
     is_a: CoordinateTransformation
-    attributes:
-      type:
-        description: The type of transformation
-        range: TransformationType
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
         ifabsent: scale
+    attributes:
       scale:
         description: The scaling vector
         range: float
@@ -94,11 +98,12 @@ classes:
   Affine:
     description: An affine transformation
     is_a: CoordinateTransformation
-    attributes:
-      type:
-        description: The type of transformation
-        range: TransformationType
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
         ifabsent: affine
+    attributes:
       affine:
         description: The affine matrix
         range: integer
@@ -113,11 +118,12 @@ classes:
   Sequence:
     description: A sequence of transformations
     is_a: CoordinateTransformation
-    attributes:
-      type:
-        description: The type of transformation
-        range: TransformationType
+    slots:
+    - transformation_type
+    slot_usage:
+      transformation_type:
         ifabsent: sequence
+    attributes:
       sequence:
         description: The sequence of transformations
         range: CoordinateTransformation
@@ -128,7 +134,7 @@ enums:
     permissible_values:
       identity:
         description: The identity transformation.
-      mapAxis:
+      map_axis:
         description: Axis permutation transformation
       translation:
         description: A translation transformation.
@@ -138,3 +144,8 @@ enums:
         description: An affine transformation
       sequence:
         description: A sequence of transformations
+
+slots:
+  transformation_type:
+    description: The type of transformation
+    range: TransformationType

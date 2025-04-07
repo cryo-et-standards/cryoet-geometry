@@ -1,11 +1,12 @@
-name: CETMDImageEntities
-id: https://w3id.org/cetmd/imageentities
+name: image_entities
+id: https://w3id.org/cetmd/image_entities
 version: 0.0.1
 description: Schema for cryoET alignments
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  image_entities: https://w3id.org/cetmd/imageentities/
+  image_entities: https://w3id.org/cetmd/image_entities/
+  #alignment: https://w3id.org/cetmd/alignment/
 
 default_prefix: image_entities
 
@@ -14,7 +15,7 @@ imports:
 - ./image
 - ./coordinate_systems
 - ./coordinate_transforms
-- ./alignment
+#- ./alignment
 
 slots:
   path:
@@ -22,6 +23,7 @@ slots:
     range: string
   section:
     description: 0-based section index to the entity inside a stack.
+    range: integer
   nominal_tilt_angle:
     description: The tilt angle reported by the microscope
     range: float
@@ -43,6 +45,14 @@ slots:
   ctf_metadata:
     description: A set of CTF patameters for an image.
     range: CTFMetadata
+  images_movie:
+    description: The movie frames in the stack
+    range: MovieFrame
+    multivalued: true
+  images_tilt:
+    description: The projections in the stack
+    range: ProjectionImage
+    multivalued: true
 
 classes:
   CTFMetadata:
@@ -82,13 +92,10 @@ classes:
 
   MovieStack:
     description: A stack of movie frames.
-    attributes:
-      images:
-        description: The movie frames in the stack
-        range: MovieFrame
-        multivalued: true
-      path:
-        range: string
+    slots:
+    - path
+    - images_movie
+
 
   ProjectionImage:
     is_a: Image2D
@@ -109,13 +116,10 @@ classes:
 
   TiltSeries:
     description: A stack of projection images.
-    attributes:
-      images:
-        description: The projections in the stack
-        range: ProjectionImage
-        multivalued: true
-      path:
-        range: string
+    slots:
+    - images_tilt
+    - path
+
 
   SubProjectionImage:
     is_a: ProjectionImage

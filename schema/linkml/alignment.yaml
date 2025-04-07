@@ -1,5 +1,5 @@
-name: CETMDAlignment
-id: CETMDAlignment
+name: alignment
+id: https://w3id.org/cetmd/alignment/
 version: 0.0.1
 description: Schema for cryoET alignments
 prefixes:

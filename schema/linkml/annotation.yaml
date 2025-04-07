@@ -1,11 +1,11 @@
-name: CETMDAnnotation
+name: annotation
 id: https://w3id.org/cetmd/annotation
 version: 0.0.1
 description: Schema for cryoET alignments
 prefixes:
   linkml: https://w3id.org/linkml/
   image: https://w3id.org/cetmd/image/
-  annotations: https://w3id.org/cetmd/annotation/
+  annotation: https://w3id.org/cetmd/annotation/
 
 default_prefix: annotation
 

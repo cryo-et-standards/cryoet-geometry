@@ -1,12 +1,14 @@
-name: CETMDCoordinateSystems
+name: coordinate_systems
 id: https://w3id.org/cetmd/coordinate_systems
 version: 0.0.1
 description: Schema for cryoET alignments
-imports:
-- linkml:types
+
 prefixes:
   linkml: https://w3id.org/linkml/
   coordinate_systems: https://w3id.org/cetmd/coordinate_systems/
+
+imports:
+- linkml:types
 
 default_prefix: coordinate_systems
 
@@ -25,17 +27,24 @@ slots:
 classes:
   Axis:
     description: An axis in a coordinate system
-    attributes:
-      name:
-        exact_mappings:
-          - axis_name
+    slots:
+    - axis_name
+    - axis_unit
+    - axis_type
+    slot_usage:
+      axis_name:
         required: true
-      axis_unit:
-        exact_mappings:
-          - axis_unit
-      axis_type:
-        exact_mappings:
-          - axis_type
+#     attributes:
+#       axis_name:
+#  #       exact_mappings:
+#  #         - axis_name
+#         required: true
+#       axis_unit:
+#  #       exact_mappings:
+#  #         - axis_unit
+#       axis_type:
+#  #       exact_mappings:
+#  #         - axis_type
 
   CoordinateSystem:
     description: A coordinate system

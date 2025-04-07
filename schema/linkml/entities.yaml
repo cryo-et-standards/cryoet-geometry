@@ -1,25 +1,33 @@
-name: CETMDEntities
+name: entities
 id: https://w3id.org/cetmd/entities
 version: 0.0.1
 description: Schema for cryoET geometry
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  image_entities: https://w3id.org/cetmd/imageentities/
-  entities: https://w3id.org/cetmd/entities/
-  annotation: https://w3id.org/cetmd/annotation/
+#  image_entities: https://w3id.org/cetmd/image_entities/
+#  entities: https://w3id.org/cetmd/entities/
+#  annotation: https://w3id.org/cetmd/annotation/
 
-default_prefix: entities
+
+#default_prefix: entities
 
 imports:
 - linkml:types
 - ./image_entities
 - ./annotation
+- ./alignment
+- ./acquisition
+- ./custom_types
+- ./instrument
+- ./tomography
 
 classes:
   Region:
     description: Raw data (movie stacks) and derived data (tilt series, tomograms, annotations) from a single region of
       a specimen.
+    slots:
+    - annotations
     attributes:
       movie_stack_collections:
         description: The movie stack
@@ -37,25 +45,18 @@ classes:
         description: The tomograms
         range: Tomogram
         multivalued: true
-      annotations:
-        description: The annotations for this region
-        range: Annotation
-        multivalued: true
 
   Average:
     description: A particle averaging experiment.
+    slots:
+    - name
+    - annotations
     attributes:
-      name:
-        description: The name of the averaging experiment.
-        range: string
       particle_maps:
         description: The particle maps
         range: ParticleMap
         multivalued: true
-      annotations:
-        description: The annotations
-        range: Annotation
-        multivalued: true
+
 
   MovieStackCollection:
     description: A collection of movie stacks using the same gain and defect files.
@@ -64,19 +65,18 @@ classes:
         description: The movie stacks in the collection
         range: MovieStackSeries
         multivalued: true
-      GainFile:
+      gain_file:
         description: The gain file for the movie stacks
         range: GainFile
-      DefectFile:
+      defect_file:
         description: The defect file for the movie stacks
         range: DefectFile
 
   Dataset:
     description: A dataset
+    slots:
+    - name
     attributes:
-      name:
-        description: The name of the dataset
-        range: string
       regions:
         description: The regions in the dataset
         range: Region
@@ -85,3 +85,23 @@ classes:
         description: The averages in the dataset
         range: Average
         multivalued: true
+
+  DataAcquisition:
+    description: information about the instrument and the data collection itself
+    attributes:
+      instrument:
+        range: Instrument
+        description: Contains information regarding instrument constants
+      acquisition:
+        range: AcquisitionTomo
+        description: Contains details on data collection parameters
+    
+
+slots:
+  name:
+    description: The name of a given entry
+    range: string
+  annotations:
+    description: The annotations
+    range: Annotation
+    multivalued: true

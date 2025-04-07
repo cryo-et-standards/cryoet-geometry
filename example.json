@@ -1,0 +1,3072 @@
+{
+    "$defs": {
+        "Acquisition": {
+            "additionalProperties": false,
+            "description": "A set of parameteres describing the data acquisition",
+            "properties": {
+                "beamshift": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BoundingBox2D"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Movement of the beam above the sample for data collection purposes that does not require movement of the stage. Given in mrad."
+                },
+                "beamtilt": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BoundingBox2D"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Another way to move the beam above the sample for data collection purposes that does not require movement of the stage. Given in mrad."
+                },
+                "beamtiltgroups": {
+                    "description": "Number of Beamtilt groups present in this dataset - for optimized processing split dataset into groups of same tilt angle. Despite its name Beamshift is often used to achive this result.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "binning_camera": {
+                    "description": "Level of binning on the images applied during data collection",
+                    "type": "number"
+                },
+                "calibrated_defocus": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Range"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Machine estimated defocus, min and max values in \u00b5m. Has a tendency to be off."
+                },
+                "calibrated_magnification": {
+                    "description": "Calculated magnification, no unit",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "cryogen": {
+                    "description": "Cryogen used in cooling the instrument and sample, usually nitrogen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "date_time": {
+                    "description": "Time and date of the data acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "detector": {
+                    "description": "Make and model of the detector used",
+                    "type": "string"
+                },
+                "detector_mode": {
+                    "description": "Operating mode of the detector",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dose_per_movie": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Average dose per image/movie/tilt - given in electrons per square Angstrom"
+                },
+                "energy_filter": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EnergyFilter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Wether an energy filter was used and its specifics."
+                },
+                "exposure_time": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Time of data acquisition per movie/tilt - in s"
+                },
+                "frames_per_movie": {
+                    "description": "Number of frames that on average constitute a full movie, can be a bit hard to define for some detectors",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "gainref_flip_rotate": {
+                    "description": "Whether and how you have to flip or rotate the gainref in order to align with your acquired images",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "grids_imaged": {
+                    "description": "Number of grids imaged for this project - here with qualifier during this data acquisition",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "holder": {
+                    "description": "Speciman holder model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "holder_cryogen": {
+                    "description": "Type of cryogen used in the holder - if the holder is cooled seperately",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "image_size": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ImageSize"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The size of the image in pixels, height and width given."
+                },
+                "images_generated": {
+                    "description": "Number of images generated total for this data collection - might need a qualifier for tilt series to determine whether full series or individual tilts are counted",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "imageshift": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BoundingBox2D"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Movement of the Beam below the image in order to shift the image on the detector. Given in \u00b5m."
+                },
+                "microscope_software": {
+                    "description": "Software used for instrument control,",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nominal_defocus": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Range"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Target defocus set, min and max values in \u00b5m."
+                },
+                "nominal_magnification": {
+                    "description": "Magnification level as indicated by the instrument, no unit",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "pixel_size": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Pixel size, in Angstrom"
+                },
+                "specialist_optics": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SpecialistOptics"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Any type of special optics, such as a phaseplate"
+                },
+                "temperature": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Range"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Temperature during data collection, in K with min and max values."
+                }
+            },
+            "required": [
+                "detector",
+                "dose_per_movie",
+                "date_time",
+                "binning_camera",
+                "pixel_size"
+            ],
+            "title": "Acquisition",
+            "type": "object"
+        },
+        "AcquisitionMetadataMixin": {
+            "additionalProperties": false,
+            "description": "Metadata concerning the acquisition process.",
+            "properties": {
+                "accumulated_dose": {
+                    "description": "The pre-exposure up to this image in e-/A^2",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "ctf_metadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CTFMetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A set of CTF patameters for an image."
+                },
+                "nominal_tilt_angle": {
+                    "description": "The tilt angle reported by the microscope",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "AcquisitionMetadataMixin",
+            "type": "object"
+        },
+        "AcquisitionTomo": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "beamshift": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BoundingBox2D"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Movement of the beam above the sample for data collection purposes that does not require movement of the stage. Given in mrad."
+                },
+                "beamtilt": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BoundingBox2D"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Another way to move the beam above the sample for data collection purposes that does not require movement of the stage. Given in mrad."
+                },
+                "beamtiltgroups": {
+                    "description": "Number of Beamtilt groups present in this dataset - for optimized processing split dataset into groups of same tilt angle. Despite its name Beamshift is often used to achive this result.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "binning_camera": {
+                    "description": "Level of binning on the images applied during data collection",
+                    "type": "number"
+                },
+                "calibrated_defocus": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Range"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Machine estimated defocus, min and max values in \u00b5m. Has a tendency to be off."
+                },
+                "calibrated_magnification": {
+                    "description": "Calculated magnification, no unit",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "cryogen": {
+                    "description": "Cryogen used in cooling the instrument and sample, usually nitrogen",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "date_time": {
+                    "description": "Time and date of the data acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "detector": {
+                    "description": "Make and model of the detector used",
+                    "type": "string"
+                },
+                "detector_mode": {
+                    "description": "Operating mode of the detector",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dose_per_movie": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Average dose per image/movie/tilt - given in electrons per square Angstrom"
+                },
+                "energy_filter": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/EnergyFilter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Wether an energy filter was used and its specifics."
+                },
+                "exposure_time": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Time of data acquisition per movie/tilt - in s"
+                },
+                "frames_per_movie": {
+                    "description": "Number of frames that on average constitute a full movie, can be a bit hard to define for some detectors",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "gainref_flip_rotate": {
+                    "description": "Whether and how you have to flip or rotate the gainref in order to align with your acquired images",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "grids_imaged": {
+                    "description": "Number of grids imaged for this project - here with qualifier during this data acquisition",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "holder": {
+                    "description": "Speciman holder model",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "holder_cryogen": {
+                    "description": "Type of cryogen used in the holder - if the holder is cooled seperately",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "image_size": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ImageSize"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The size of the image in pixels, height and width given."
+                },
+                "images_generated": {
+                    "description": "Number of images generated total for this data collection - might need a qualifier for tilt series to determine whether full series or individual tilts are counted",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "imageshift": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/BoundingBox2D"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Movement of the Beam below the image in order to shift the image on the detector. Given in \u00b5m."
+                },
+                "microscope_software": {
+                    "description": "Software used for instrument control,",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nominal_defocus": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Range"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Target defocus set, min and max values in \u00b5m."
+                },
+                "nominal_magnification": {
+                    "description": "Magnification level as indicated by the instrument, no unit",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "pixel_size": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Pixel size, in Angstrom"
+                },
+                "specialist_optics": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SpecialistOptics"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Any type of special optics, such as a phaseplate"
+                },
+                "temperature": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Range"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Temperature during data collection, in K with min and max values."
+                },
+                "tilt_angle": {
+                    "$ref": "#/$defs/TiltAngle",
+                    "description": "The min, max and increment of the tilt angle in a tomography session. Unit is degree."
+                },
+                "tilt_axis_angle": {
+                    "description": "The tilt axis angle of a tomography series",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "tilt_axis_angle",
+                "tilt_angle",
+                "detector",
+                "dose_per_movie",
+                "date_time",
+                "binning_camera",
+                "pixel_size"
+            ],
+            "title": "AcquisitionTomo",
+            "type": "object"
+        },
+        "Affine": {
+            "additionalProperties": false,
+            "description": "An affine transformation",
+            "properties": {
+                "affine": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "Affine",
+            "type": "object"
+        },
+        "Alignment": {
+            "additionalProperties": false,
+            "description": "The tomographic alignment for a tilt series.",
+            "properties": {
+                "projection_alignments": {
+                    "description": "alignment for a specific projection",
+                    "items": {
+                        "$ref": "#/$defs/ProjectionAlignment"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Alignment",
+            "type": "object"
+        },
+        "Annotation": {
+            "additionalProperties": false,
+            "description": "A primitive annotation.",
+            "properties": {
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Annotation",
+            "type": "object"
+        },
+        "Any": {
+            "additionalProperties": true,
+            "description": "Any type, used as the base for type-narrowing.",
+            "title": "Any",
+            "type": [
+                "null",
+                "boolean",
+                "object",
+                "number",
+                "string"
+            ]
+        },
+        "Average": {
+            "additionalProperties": false,
+            "description": "A particle averaging experiment.",
+            "properties": {
+                "annotations": {
+                    "description": "The annotations",
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of a given entry",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "particle_maps": {
+                    "description": "The particle maps",
+                    "items": {
+                        "$ref": "#/$defs/ParticleMap"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Average",
+            "type": "object"
+        },
+        "Axis": {
+            "additionalProperties": false,
+            "description": "An axis in a coordinate system",
+            "properties": {
+                "axis_name": {
+                    "description": "The name of the axis",
+                    "type": "string"
+                },
+                "axis_type": {
+                    "$ref": "#/$defs/AxisType",
+                    "description": "The type of axis"
+                },
+                "axis_unit": {
+                    "description": "The unit of the axis",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "axis_name"
+            ],
+            "title": "Axis",
+            "type": "object"
+        },
+        "AxisNameMapping": {
+            "additionalProperties": false,
+            "description": "Axis name to Axis name mapping",
+            "properties": {
+                "axis1_name": {
+                    "description": "The type of transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "axis2_name": {
+                    "description": "The mapping of the axis names",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "AxisNameMapping",
+            "type": "object"
+        },
+        "AxisType": {
+            "description": "The type of axis",
+            "enum": [
+                "space",
+                "array"
+            ],
+            "title": "AxisType",
+            "type": "string"
+        },
+        "BoundingBox2D": {
+            "additionalProperties": false,
+            "description": "an axis-aligned 2D bounding box (float units)",
+            "properties": {
+                "x_max": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "maximum x"
+                },
+                "x_min": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "minimum x"
+                },
+                "y_max": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "maximum y"
+                },
+                "y_min": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "minimum y"
+                }
+            },
+            "title": "BoundingBox2D",
+            "type": "object"
+        },
+        "CTFMetadata": {
+            "additionalProperties": false,
+            "description": "A set of CTF patameters for an image.",
+            "properties": {
+                "defocus_angle": {
+                    "description": "Estimated angle of astigmatism.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "defocus_u": {
+                    "description": "Estimated defocus U for this image in Angstrom, underfocus positive.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "defocus_v": {
+                    "description": "Estimated defocus V for this image in Angstrom, underfocus positive.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CTFMetadata",
+            "type": "object"
+        },
+        "ChromaticAberrationCorrector": {
+            "additionalProperties": false,
+            "description": "Special device used to correct instrument inherent chromatic aberration.",
+            "properties": {
+                "instrument_type": {
+                    "description": "Details of a given specialist instrument",
+                    "type": "string"
+                },
+                "used": {
+                    "description": "whether a specific instrument was used during data acquisition",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "used",
+                "instrument_type"
+            ],
+            "title": "ChromaticAberrationCorrector",
+            "type": "object"
+        },
+        "CoordMetaMixin": {
+            "additionalProperties": false,
+            "description": "Coordinate system mixins for annotations.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CoordMetaMixin",
+            "type": "object"
+        },
+        "CoordinateSystem": {
+            "additionalProperties": false,
+            "description": "A coordinate system",
+            "properties": {
+                "axes": {
+                    "description": "The axes of the coordinate system",
+                    "items": {
+                        "$ref": "#/$defs/Axis"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The name of the coordinate system",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "axes"
+            ],
+            "title": "CoordinateSystem",
+            "type": "object"
+        },
+        "CoordinateTransformation": {
+            "additionalProperties": false,
+            "description": "A coordinate transformation",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "CoordinateTransformation",
+            "type": "object"
+        },
+        "DataAcquisition": {
+            "additionalProperties": false,
+            "description": "information about the instrument and the data collection itself",
+            "properties": {
+                "acquisition": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/AcquisitionTomo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Contains details on data collection parameters"
+                },
+                "instrument": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Instrument"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Contains information regarding instrument constants"
+                }
+            },
+            "title": "DataAcquisition",
+            "type": "object"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "A dataset",
+            "properties": {
+                "averages": {
+                    "description": "The averages in the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Average"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of a given entry",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "regions": {
+                    "description": "The regions in the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Region"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Dataset",
+            "type": "object"
+        },
+        "DefectFile": {
+            "additionalProperties": false,
+            "description": "A detector defect file.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "DefectFile",
+            "type": "object"
+        },
+        "Descriptors": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "descriptor_name": {
+                    "description": "Name defining the descriptor",
+                    "type": "string"
+                },
+                "descriptor_thing": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Any"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Description of the descriptor"
+                }
+            },
+            "required": [
+                "descriptor_name"
+            ],
+            "title": "Descriptors",
+            "type": "object"
+        },
+        "EnergyFilter": {
+            "additionalProperties": false,
+            "description": "A device used to filter for electrons with specific energy.",
+            "properties": {
+                "model": {
+                    "description": "Make and model of a specilized device",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "used": {
+                    "description": "whether a specific instrument was used during data acquisition",
+                    "type": "boolean"
+                },
+                "width_energy_filter": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Width of the energy filter used."
+                }
+            },
+            "required": [
+                "used",
+                "width_energy_filter"
+            ],
+            "title": "EnergyFilter",
+            "type": "object"
+        },
+        "GainFile": {
+            "additionalProperties": false,
+            "description": "A gain reference file.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "GainFile",
+            "type": "object"
+        },
+        "Identity": {
+            "additionalProperties": false,
+            "description": "The identity transformation",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "Identity",
+            "type": "object"
+        },
+        "Image2D": {
+            "additionalProperties": false,
+            "description": "A 2D image.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Image2D",
+            "type": "object"
+        },
+        "Image3D": {
+            "additionalProperties": false,
+            "description": "A 3D image.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "depth": {
+                    "description": "The depth of the image (z-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Image3D",
+            "type": "object"
+        },
+        "ImageSize": {
+            "additionalProperties": false,
+            "description": "size of a 2D image (in integer units)",
+            "properties": {
+                "height_im": {
+                    "description": "The height of a given item - unit depends on item",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "width_im": {
+                    "description": "The width of a given item - unit depends on item",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ImageSize",
+            "type": "object"
+        },
+        "ImageStack2D": {
+            "additionalProperties": false,
+            "description": "A stack of 2D images.",
+            "properties": {
+                "images2D": {
+                    "description": "The images in the stack",
+                    "items": {
+                        "$ref": "#/$defs/Image2D"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ImageStack2D",
+            "type": "object"
+        },
+        "ImageStack3D": {
+            "additionalProperties": false,
+            "description": "A stack of 3D images.",
+            "properties": {
+                "images3D": {
+                    "description": "The images in the stack",
+                    "items": {
+                        "$ref": "#/$defs/Image3D"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ImageStack3D",
+            "type": "object"
+        },
+        "Instrument": {
+            "additionalProperties": false,
+            "description": "Instrument values, mostly constant across a data collection.",
+            "properties": {
+                "acceleration_voltage": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Voltage used for the electron acceleration, in kV"
+                },
+                "c2_aperture": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "C2 aperture size used in data acquisition, in \u00b5m"
+                },
+                "cs": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Spherical aberration of the instrument, in mm"
+                },
+                "electron_source": {
+                    "description": "Type of electron source used in the microscope, such as FEG",
+                    "type": "string"
+                },
+                "illumination": {
+                    "description": "Mode of illumination used during data collection",
+                    "type": "string"
+                },
+                "imaging": {
+                    "description": "Mode of imaging used during data collection",
+                    "type": "string"
+                },
+                "microscope": {
+                    "description": "Name/Type of the Microscope",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "microscope",
+                "illumination",
+                "imaging",
+                "electron_source",
+                "acceleration_voltage",
+                "cs"
+            ],
+            "title": "Instrument",
+            "type": "object"
+        },
+        "MapAxis": {
+            "additionalProperties": false,
+            "description": "Axis permutation transformation",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "map_axis": {
+                    "description": "The permutation of the axes",
+                    "items": {
+                        "$ref": "#/$defs/AxisNameMapping"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "MapAxis",
+            "type": "object"
+        },
+        "MovieFrame": {
+            "additionalProperties": false,
+            "description": "An individual movie frame",
+            "properties": {
+                "accumulated_dose": {
+                    "description": "The pre-exposure up to this image in e-/A^2",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ctf_metadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CTFMetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A set of CTF patameters for an image."
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "nominal_tilt_angle": {
+                    "description": "The tilt angle reported by the microscope",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "section": {
+                    "description": "0-based section index to the entity inside a stack.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MovieFrame",
+            "type": "object"
+        },
+        "MovieStack": {
+            "additionalProperties": false,
+            "description": "A stack of movie frames.",
+            "properties": {
+                "images_movie": {
+                    "description": "The movie frames in the stack",
+                    "items": {
+                        "$ref": "#/$defs/MovieFrame"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MovieStack",
+            "type": "object"
+        },
+        "MovieStackCollection": {
+            "additionalProperties": false,
+            "description": "A collection of movie stacks using the same gain and defect files.",
+            "properties": {
+                "defect_file": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DefectFile"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The defect file for the movie stacks"
+                },
+                "gain_file": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/GainFile"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The gain file for the movie stacks"
+                },
+                "movie_stacks": {
+                    "description": "The movie stacks in the collection",
+                    "items": {
+                        "$ref": "#/$defs/MovieStackSeries"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MovieStackCollection",
+            "type": "object"
+        },
+        "MovieStackSeries": {
+            "additionalProperties": false,
+            "description": "A group of movie stacks that belong to a single tilt series.",
+            "properties": {
+                "stacks": {
+                    "description": "The movie stacks.",
+                    "items": {
+                        "$ref": "#/$defs/MovieStack"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "MovieStackSeries",
+            "type": "object"
+        },
+        "ParticleMap": {
+            "additionalProperties": false,
+            "description": "A 3D particle density map.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "depth": {
+                    "description": "The depth of the image (z-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ParticleMap",
+            "type": "object"
+        },
+        "Phaseplate": {
+            "additionalProperties": false,
+            "description": "Used to modulate the phase of the electron wave.",
+            "properties": {
+                "instrument_type": {
+                    "description": "Type of phaseplate",
+                    "type": "string"
+                },
+                "used": {
+                    "description": "whether a specific instrument was used during data acquisition",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "used",
+                "instrument_type"
+            ],
+            "title": "Phaseplate",
+            "type": "object"
+        },
+        "PointMatrixSet2D": {
+            "additionalProperties": false,
+            "description": "A set of 2D points with an associated rotation matrix.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "matrix2D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "origin2D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PointMatrixSet2D",
+            "type": "object"
+        },
+        "PointMatrixSet3D": {
+            "additionalProperties": false,
+            "description": "A set of 3D points with an associated rotation matrix.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "matrix3D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "origin3D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PointMatrixSet3D",
+            "type": "object"
+        },
+        "PointSet2D": {
+            "additionalProperties": false,
+            "description": "A set of 2D point annotations.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "origin2D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PointSet2D",
+            "type": "object"
+        },
+        "PointSet3D": {
+            "additionalProperties": false,
+            "description": "A set of 3D point annotations.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "origin3D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PointSet3D",
+            "type": "object"
+        },
+        "PointVectorSet2D": {
+            "additionalProperties": false,
+            "description": "A set of 2D points with an associated direction vector.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "origin2D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vector2D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PointVectorSet2D",
+            "type": "object"
+        },
+        "PointVectorSet3D": {
+            "additionalProperties": false,
+            "description": "A set of 3D points with an associated direction vector.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "origin3D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "vector3D": {
+                    "items": {
+                        "additionalProperties": true,
+                        "type": [
+                            "null",
+                            "boolean",
+                            "object",
+                            "number",
+                            "string",
+                            "array"
+                        ]
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PointVectorSet3D",
+            "type": "object"
+        },
+        "ProbabilityMap2D": {
+            "additionalProperties": false,
+            "description": "An annotation image with real-valued labels.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ProbabilityMap2D",
+            "type": "object"
+        },
+        "ProbabilityMap3D": {
+            "additionalProperties": false,
+            "description": "An annotation volume with real-valued labels.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "depth": {
+                    "description": "The depth of the image (z-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ProbabilityMap3D",
+            "type": "object"
+        },
+        "ProjectionAlignment": {
+            "additionalProperties": false,
+            "description": "The tomographic alignment for a single projection.",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sequence": {
+                    "description": "The sequence of transformations",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation",
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Affine"
+                            },
+                            {
+                                "$ref": "#/$defs/Translation"
+                            }
+                        ]
+                    },
+                    "maxItems": 2,
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "ProjectionAlignment",
+            "type": "object"
+        },
+        "ProjectionImage": {
+            "additionalProperties": false,
+            "description": "A projection image.",
+            "properties": {
+                "accumulated_dose": {
+                    "description": "The pre-exposure up to this image in e-/A^2",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ctf_metadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CTFMetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A set of CTF patameters for an image."
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "nominal_tilt_angle": {
+                    "description": "The tilt angle reported by the microscope",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "section": {
+                    "description": "0-based section index to the entity inside a stack.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "ProjectionImage",
+            "type": "object"
+        },
+        "QuantitySI": {
+            "additionalProperties": false,
+            "description": "unit value extended to have two additional fields si_value and si_unit",
+            "properties": {
+                "unit": {
+                    "description": "the unit of a given value",
+                    "type": "string"
+                },
+                "unitSI": {
+                    "description": "the SI unit attached to a si value",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "value": {
+                    "description": "the value of a field with a unit",
+                    "type": "number"
+                },
+                "valueSI": {
+                    "description": "value of a given field in respect to its SI unit",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "unit",
+                "value"
+            ],
+            "title": "QuantitySI",
+            "type": "object"
+        },
+        "QuantityValue": {
+            "additionalProperties": false,
+            "description": "if a value has a unit, it should be given as a unit value pair.",
+            "properties": {
+                "unit": {
+                    "description": "the unit of a given value",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "the value of a field with a unit",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "unit",
+                "value"
+            ],
+            "title": "QuantityValue",
+            "type": "object"
+        },
+        "Range": {
+            "additionalProperties": false,
+            "description": "A range constructed from min and max",
+            "properties": {
+                "maximal": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Maximal value of a given dataset property"
+                },
+                "minimal": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Minimal value of a given dataset property"
+                }
+            },
+            "title": "Range",
+            "type": "object"
+        },
+        "Region": {
+            "additionalProperties": false,
+            "description": "Raw data (movie stacks) and derived data (tilt series, tomograms, annotations) from a single region of a specimen.",
+            "properties": {
+                "alignments": {
+                    "description": "The alignments",
+                    "items": {
+                        "$ref": "#/$defs/Alignment"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "annotations": {
+                    "description": "The annotations",
+                    "items": {
+                        "$ref": "#/$defs/Annotation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "movie_stack_collections": {
+                    "description": "The movie stack",
+                    "items": {
+                        "$ref": "#/$defs/MovieStackCollection"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tilt_series": {
+                    "description": "The tilt series",
+                    "items": {
+                        "$ref": "#/$defs/TiltSeries"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tomograms": {
+                    "description": "The tomograms",
+                    "items": {
+                        "$ref": "#/$defs/Tomogram"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Region",
+            "type": "object"
+        },
+        "Scale": {
+            "additionalProperties": false,
+            "description": "A scaling transformation",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "scale": {
+                    "description": "The scaling vector",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "Scale",
+            "type": "object"
+        },
+        "SegmentationMask2D": {
+            "additionalProperties": false,
+            "description": "An annotation image with categorical labels.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "SegmentationMask2D",
+            "type": "object"
+        },
+        "SegmentationMask3D": {
+            "additionalProperties": false,
+            "description": "An annotation volume with categorical labels.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "depth": {
+                    "description": "The depth of the image (z-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "SegmentationMask3D",
+            "type": "object"
+        },
+        "Sequence": {
+            "additionalProperties": false,
+            "description": "A sequence of transformations",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sequence": {
+                    "description": "The sequence of transformations",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                }
+            },
+            "title": "Sequence",
+            "type": "object"
+        },
+        "Series": {
+            "additionalProperties": false,
+            "description": "A series of numbers constructed from min, max, and increment",
+            "properties": {
+                "increment": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Increment between elements of a series"
+                },
+                "maximal": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Maximal value of a given dataset property"
+                },
+                "minimal": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Minimal value of a given dataset property"
+                }
+            },
+            "title": "Series",
+            "type": "object"
+        },
+        "SpecialistOptics": {
+            "additionalProperties": false,
+            "description": "Optional optics used to correct for instrument limitations.",
+            "properties": {
+                "chromatic_aberration_corrector": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/ChromaticAberrationCorrector"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Specialist device to correct for chromatic aberration of the microscope lenses"
+                },
+                "phaseplate": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Phaseplate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Phaseplate is a special optics device that can be used to enhance contrast"
+                },
+                "spherical_aberration_corrector": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/SphericalAberrationCorrector"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Specialist device to correct for spherical aberration of the microscope lenses"
+                }
+            },
+            "title": "SpecialistOptics",
+            "type": "object"
+        },
+        "SphericalAberrationCorrector": {
+            "additionalProperties": false,
+            "description": "Special device used to correct instrument inherent spherical aberration.",
+            "properties": {
+                "instrument_type": {
+                    "description": "Details of a given specialist instrument",
+                    "type": "string"
+                },
+                "used": {
+                    "description": "whether a specific instrument was used during data acquisition",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "used",
+                "instrument_type"
+            ],
+            "title": "SphericalAberrationCorrector",
+            "type": "object"
+        },
+        "SubProjectionImage": {
+            "additionalProperties": false,
+            "description": "A croppecd projection image.",
+            "properties": {
+                "accumulated_dose": {
+                    "description": "The pre-exposure up to this image in e-/A^2",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ctf_metadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CTFMetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A set of CTF patameters for an image."
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "nominal_tilt_angle": {
+                    "description": "The tilt angle reported by the microscope",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "particle_index": {
+                    "description": "Index of a particle inside a tomogram.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "section": {
+                    "description": "0-based section index to the entity inside a stack.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "SubProjectionImage",
+            "type": "object"
+        },
+        "TiltAngle": {
+            "additionalProperties": false,
+            "description": "The min, max and increment of the tilt angle in a tomography session. Unit is degree.",
+            "properties": {
+                "increment": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Increment between elements of a series"
+                },
+                "maximal": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Maximal value of a given dataset property"
+                },
+                "minimal": {
+                    "$ref": "#/$defs/Any",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/QuantityValue"
+                        },
+                        {
+                            "$ref": "#/$defs/QuantitySI"
+                        }
+                    ],
+                    "description": "Minimal value of a given dataset property"
+                }
+            },
+            "required": [
+                "increment",
+                "minimal",
+                "maximal"
+            ],
+            "title": "TiltAngle",
+            "type": "object"
+        },
+        "TiltSeries": {
+            "additionalProperties": false,
+            "description": "A stack of projection images.",
+            "properties": {
+                "images_tilt": {
+                    "description": "The projections in the stack",
+                    "items": {
+                        "$ref": "#/$defs/ProjectionImage"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "TiltSeries",
+            "type": "object"
+        },
+        "Tomogram": {
+            "additionalProperties": false,
+            "description": "A 3D tomogram.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "depth": {
+                    "description": "The depth of the image (z-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "height": {
+                    "description": "The height of the image (y-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "width": {
+                    "description": "The width of the image (x-axis) in pixels",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Tomogram",
+            "type": "object"
+        },
+        "TransformationType": {
+            "description": "",
+            "enum": [
+                "identity",
+                "map_axis",
+                "translation",
+                "scale",
+                "affine",
+                "sequence"
+            ],
+            "title": "TransformationType",
+            "type": "string"
+        },
+        "Translation": {
+            "additionalProperties": false,
+            "description": "A translation transformation",
+            "properties": {
+                "input": {
+                    "description": "The source coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The name of the coordinate transformation",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "description": "The target coordinate system name",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "transformation_type": {
+                    "$ref": "#/$defs/TransformationType",
+                    "description": "The type of transformation"
+                },
+                "translation": {
+                    "description": "The translation vector",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Translation",
+            "type": "object"
+        },
+        "TriMesh": {
+            "additionalProperties": false,
+            "description": "A mesh annotation.",
+            "properties": {
+                "coordinate_systems": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateSystem"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "coordinate_transformations": {
+                    "description": "Named coordinate systems for this entity",
+                    "items": {
+                        "$ref": "#/$defs/CoordinateTransformation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "path": {
+                    "description": "Path to a file.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "TriMesh",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/cetmd/entities",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "entities",
+    "type": "object",
+    "version": "0.0.1"
+}

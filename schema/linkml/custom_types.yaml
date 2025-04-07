@@ -1,0 +1,179 @@
+id: https://w3id.org/osc-em/custom_types
+name: custom_types
+description: Mixins for basic types shared among OSC-EM schemas
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  custom_types: https://w3id.org/osc-em/custom_types
+
+default_prefix: custom_types
+
+imports:
+  - linkml:types
+
+
+classes:
+  Any:
+    description: Any type, used as the base for type-narrowing.
+    class_uri: linkml:Any
+  Range:
+    description: A range constructed from min and max
+    slots:
+    - minimal
+    - maximal
+  #RangeSI:
+  #  description: A range constructed from min and max, si units attached
+   # slots:
+  #  - minimal_si
+  #  - maximal_si
+  Series:
+    is_a: Range
+    description: A series of numbers constructed from min, max, and increment
+    slots:
+    - increment
+  ImageSize:
+    description: size of a 2D image (in integer units)
+    slots:
+    - height_im
+    - width_im
+  BoundingBox2D:
+    description: an axis-aligned 2D bounding box (float units)
+    slots:
+    - x_min
+    - x_max
+    - y_min
+    - y_max
+  #BoundingBox2DSI:
+   # description: an axis-aligned 2D bounding box (float units) with SI unit attached
+    #slots:
+  #  - x_min_si
+  #  - x_max_si
+  #  - y_min_si
+   # - y_max_si
+  QuantityValue:
+    class_uri: qudt:quantityValue
+    description: if a value has a unit, it should be given as a unit value pair.
+    slots:
+    - unit
+    - value
+    slot_usage:
+      unit:
+        required: true
+      value:
+        required: true
+  QuantitySI:
+    is_a: QuantityValue
+    description: unit value extended to have two additional fields si_value and si_unit
+    slots:
+    - valueSI
+    - unitSI
+    slot_usage:
+      si_value:
+        required: true
+      si_unit:
+        required: true
+  Descriptor:
+    description: List of custom descriptors for user-defined key-value pairs describing how micrographs were obtained or any related information
+    abstract: true
+    slots:
+    - descriptor_name
+    - descriptor_thing
+    slot_usage:
+      descriptor_name:
+        required: true
+      descriptor_thing:
+        required: false
+  Descriptors:
+    is_a: Descriptor
+
+slots:
+  minimal:
+    description: Minimal value of a given dataset property
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  maximal:
+    description: Maximal value of a given dataset property
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  increment:
+    description: Increment between elements of a series
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  width_im:
+    description: The width of a given item - unit depends on item
+    range: integer
+  height_im:
+    description: The height of a given item - unit depends on item
+    range: integer
+  x_min:
+    description: minimum x
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  x_max:
+    description: maximum x
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  y_min:
+    description: minimum y
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  y_max:
+    description: maximum y
+    range: Any
+    any_of:
+      - range:  QuantityValue
+      - range:  QuantitySI
+  unit:
+    description: the unit of a given value
+    range: string
+    slot_uri: qudt:hasUnit
+  value:
+    description: the value of a field with a unit
+    range: float
+    slot_uri: qudt:hasQuantityKind
+  descriptors:
+    description: List of custom descriptors for user-defined key-value pairs describing how movies were obtained or any related information
+    range: Descriptors
+    multivalued: true
+  descriptor_name:
+    description: Name defining the descriptor
+    range: string
+  descriptor_thing:
+    description: Description of the descriptor
+    range: Any
+  valueSI:
+    description: value of a given field in respect to its SI unit
+    range: float
+  unitSI:
+    description: the SI unit attached to a si value
+    range: string
+ # minimal_si:
+  #  description: Minimal value of a given dataset property, with si units
+  #  range: QuantitySI
+  #maximal_si:
+  #  description: Maximal value of a given dataset property, with si units
+  #  range: QuantitySI
+  #x_min_si:
+  #  description: minimum x, with si units
+  #  range: QuantitySI
+  #x_max_si:
+  #  description: maximum x, with si units
+  #  range: QuantitySI
+  #y_min_si:
+  #  description: minimum y, with si units
+  #  range: QuantitySI
+  #y_max_si:
+  #  description: maximum y, with si units
+  #  range: QuantitySI
