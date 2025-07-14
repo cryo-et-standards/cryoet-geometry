@@ -5,6 +5,7 @@ class Axis(_models.Axis):
     # Some additional validation logic added here
     pass
 
+
 class CoordinateSystem(_models.CoordinateSystem):
     # Some additional validation logic added here
     pass

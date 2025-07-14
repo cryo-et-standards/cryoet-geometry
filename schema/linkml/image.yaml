@@ -64,4 +64,3 @@ classes:
         description: The images in the stack
         range: Image3D
         multivalued: true
-

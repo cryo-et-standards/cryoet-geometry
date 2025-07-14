@@ -26,7 +26,7 @@ class MovieFrame(_models.Image2D):
     pass
 
 
-class MovieStack(_models.ImageStack):
+class MovieStack(_models.ImageStack2D):
     # Some additional validation logic added here
     pass
 
@@ -36,12 +36,12 @@ class ProjectionImage(_models.Image2D):
     pass
 
 
-class MovieStackSeries(_models.ImageStackSeries):
-    # Some additional validation logic added here
-    pass
+# class MovieStackSeries(_models.ImageStackSeries):
+#     # Some additional validation logic added here
+#     pass
 
 
-class TiltSeries(_models.ImageStack):
+class TiltSeries(_models.ImageStack2D):
     # Some additional validation logic added here
     pass
 
