@@ -14,7 +14,8 @@ version = "0.0.1"
 dependencies = [
     "numpy",
     "pydantic>=2",
-    "linkml>=1.8.6"
+    "linkml>=1.8.6",
+    "numpydantic",
 ]
 authors = [
   {name = "Utz H. Ermel", email = "utz.ermel@czii.org"},
@@ -33,9 +34,14 @@ test = [
 dev = [
     "black",
     "ipython",
+    "deepdiff",
+    "mypy==1.8.0",  # this version should match the one in .pre-commit-config.yaml
+    "flake8-pyproject",
     "pre-commit",
-    "ruff",
-    "notebook",
+    "pytest",
+    "sniffio",
+    "ruff==0.11.12", # this version should match the one in .pre-commit-config.yaml
+    "types-setuptools",
 ]
 docs = [
     "mkdocs",
@@ -94,6 +100,7 @@ ignore = [
     "N815",   # mixedCase variable in class scope
     "N999",   # Invalid module name
     "E501",   # line too long
+    "F722",   # forward-annotation-syntax-error
     "C408",   # rewrite empty built-ins as literals
     "T201",   # print statements.
     "DTZ007", # Datetime objects without timezones.
@@ -115,6 +122,15 @@ docstring-quotes = "double"
 dependencies = [
   "pytest",
 ]
+
+[mypy]
+plugins = "pydantic.mypy"
+
+[pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
 
 [tool.hatch.envs.test.scripts]
 test = "pytest {args:tests}"

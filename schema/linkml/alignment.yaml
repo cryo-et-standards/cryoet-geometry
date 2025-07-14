@@ -40,6 +40,3 @@ classes:
           description: alignment for a specific projection
           range: ProjectionAlignment
           multivalued: true
-
-
-

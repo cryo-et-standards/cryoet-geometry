@@ -42,7 +42,7 @@
 - **Logical Space**: Continuous space in physical units of Angstroms (Å).
 - **Discrete Space**: Discrete array space with integer coordinates.
 
-We explicitly define the discrete space to remove any ambiguity about the location of the origin and the direction of 
+We explicitly define the discrete space to remove any ambiguity about the location of the origin and the direction of
 the axes of the discrete image, which has caused errors in the past.
 
 ### Basic Notation
@@ -50,16 +50,16 @@ the axes of the discrete image, which has caused errors in the past.
 #### Points and Vectors
 - Discrete 2D coordinates are denoted as $\mathbf{s^*} = (s^*_x, s^*_y)^T$ where $s^*_x, s^*_y \in \mathbb{Z}$
 - Discrete 3D coordinates are denoted as $\mathbf{r^*} = (r^*_x, r^*_y, r^*_z)^T$ where $r^*_x, r^*_y, r^*_z \in \mathbb{Z}$
-- 2D vectors are denoted as (lower case, bold face) $\mathbf{s} = (s_x, s_y)^T$ where $s_x, s_y \in \mathbb{R}$ 
+- 2D vectors are denoted as (lower case, bold face) $\mathbf{s} = (s_x, s_y)^T$ where $s_x, s_y \in \mathbb{R}$
 - 3D vectors are denoted as (lower case, bold face) $\mathbf{r} = (r_x, r_y, r_z)^T$ where $r_x, r_y, r_z \in \mathbb{R}$
 
 #### Image/Volume Grids and Functions
 
-- Discrete 2D image arrays are denoted as (capital, plain) 
+- Discrete 2D image arrays are denoted as (capital, plain)
 $$G^*[\mathbf{s}^*]: \mathbb{Z}^2 \rightarrow \mathbb{R}$$
 
-   where $\mathbf{N}_G = (n_x, n_y)$ is the size of the image in pixels. $n_x$ is the **width** and $n_y$ is the **height** 
-   of the image. 
+   where $\mathbf{N}_G = (n_x, n_y)$ is the size of the image in pixels. $n_x$ is the **width** and $n_y$ is the **height**
+   of the image.
 
 - Continuous 2D image functions are denoted as (capital, plain)
 $$G(\mathbf{s}): \mathbb{R}^2 \rightarrow \mathbb{R}$$
@@ -67,19 +67,19 @@ $$G(\mathbf{s}): \mathbb{R}^2 \rightarrow \mathbb{R}$$
 - Discrete 3D volume arrays are denoted as (capital, plain)
 $$V^*[\mathbf{r}^*]: \mathbb{Z}^3 \rightarrow \mathbb{R}$$
 
-   where $\mathbf{N}_V = (n_x, n_y, n_z)$ is the size of the volume in pixels. $n_x$ is the **width**, $n_y$ is the 
+   where $\mathbf{N}_V = (n_x, n_y, n_z)$ is the size of the volume in pixels. $n_x$ is the **width**, $n_y$ is the
     **height** and $n_z$ is the **depth** of the volume.
 
 - Continuous 3D volume functions are denoted as (capital, plain)
 $$V(\mathbf{r}): \mathbb{R}^3 \rightarrow \mathbb{R}$$
 
-#### Matrices 
+#### Matrices
 - Transformation matrices are denoted as (capital, bold face) $\mathbf{M}$
 - Homogeneous transformation matrices are denoted as (capital, bold face with tilde) $\tilde{\mathbf{M}}$
 
 ### Right-handed Coordinate System
-The standard coordinate system for cryoET is a right-handed Cartesian coordinate system. The defining characteristic of 
-a right-handed coordinate system is the following set of relationships between the vectors that constitute the 
+The standard coordinate system for cryoET is a right-handed Cartesian coordinate system. The defining characteristic of
+a right-handed coordinate system is the following set of relationships between the vectors that constitute the
 coordinate system:
 
 $$\mathbf{x} \times \mathbf{y} = \mathbf{z}$$
@@ -90,7 +90,7 @@ Where $\times$ denotes the cross product and $\mathbf{x}, \mathbf{y}, \mathbf{z}
 
 The right-handed system is defined such that:
 - Electrons travel from negative $z$ to positive $z$ (aligned with microscope column)
-- $y$ points towards the microscopist 
+- $y$ points towards the microscopist
 - $x$ points to the microscopist's right
 
 All points, vectors and transformations are defined with respect to the right-handed coordinate system.
@@ -192,7 +192,7 @@ Where:
 - $\tilde{r}_F = (x, y, z, 1) \in \mathbb{R}^3 \times \{1\}$ represents its transformed counterpart in homogeneous coordinates
 - $\tilde{\mathbf{F}}$ is a 4×4 invertible matrix of real numbers, structured as:
 
-$$\tilde{\mathbf{M}}_F = \begin{pmatrix} 
+$$\tilde{\mathbf{M}}_F = \begin{pmatrix}
 r_{11} & r_{12} & r_{13} & t_x \\
 r_{21} & r_{22} & r_{23} & t_y \\
 r_{31} & r_{32} & r_{33} & t_z \\
@@ -209,12 +209,12 @@ Where:
 
 ### Scalar Indeces
 - $i \in \mathbb{Z}$ - The tilt index
-- $j \in \mathbb{Z}$ - The frame index  
+- $j \in \mathbb{Z}$ - The frame index
 - $n \in \mathbb{Z}$ - The sub-tomogram or sub-tiltstack index
 
 
 ## Image/Volume Grids, Image/Volume Functions and their Coordinate Spaces
-Image Functions in cryoET processing are defined in terms of their discrete and continuous representations. 
+Image Functions in cryoET processing are defined in terms of their discrete and continuous representations.
 
 ### 2D Images
 #### Discrete Image Arrays to Continuous Image Functions
@@ -224,13 +224,13 @@ $$C^*[\mathbf{s}^*_C] = C(\mathbf{M}_C \mathbf{s}^*_C) = C(\mathbf{s}_C)$$
 
 Where:
 - $s^*_C$ is the discrete coordinate in the image space
-- $s_C$ is the continuous coordinate in the image space 
+- $s_C$ is the continuous coordinate in the image space
 - $C^*[\cdot]$ is the discrete image array in discrete space
 - $C(\cdot)$ is the continuous image function in logical space
 - $\mathbf{M}_C$ is the transformation matrix from the discrete space to the continuous image or volume space
 
-Matrix $\mathbf{M}_C$ encodes the translation and scaling operations that map the discrete image space to the continuous 
-image space in that order, and is thus composed of a translation matrix $\mathbf{T}_C(t_x, t_y)$ and a scaling matrix 
+Matrix $\mathbf{M}_C$ encodes the translation and scaling operations that map the discrete image space to the continuous
+image space in that order, and is thus composed of a translation matrix $\mathbf{T}_C(t_x, t_y)$ and a scaling matrix
 $\mathbf{S}_C(s_x, s_y)$:
 
 $$\mathbf{M}_C = \mathbf{S}_C \mathbf{T}_C$$
@@ -263,7 +263,7 @@ $$V^*[\mathbf{r}^*_V] = V(\mathbf{M}_V \mathbf{r}^*_V) = V(\mathbf{r}_V)$$
 
 Where:
 - $\mathbf{r}^*_V$ is the discrete coordinate in the 3D image space
-- $\mathbf{r}_V$ is the continuous coordinate in the 3D image space 
+- $\mathbf{r}_V$ is the continuous coordinate in the 3D image space
 - $V^*[\cdot]$ is the discrete volume array in discrete space
 - $V(\cdot)$ is the continuous volume function in logical space
 - $\mathbf{M}_V$ is the transformation matrix from the discrete space to the continuous image or volume space
@@ -306,16 +306,16 @@ Useful transformations between 2D image spaces are defined as:
 | Transformation               | Description                                     | Matrix                |
 |------------------------------|-------------------------------------------------|-----------------------|
 | Calibration to Movie Frame   | Transform from calibration image to movie frame | $M_{C \rightarrow M}$ |
-| Movie Frame to Projection    | Transform from movie frame to projection        | $M_{M \rightarrow P}$ |                
-| Sub-Projection to Projection | Transform from sub-projection to projection     | $M_{S \rightarrow P}$ |                
+| Movie Frame to Projection    | Transform from movie frame to projection        | $M_{M \rightarrow P}$ |
+| Sub-Projection to Projection | Transform from sub-projection to projection     | $M_{S \rightarrow P}$ |
 
 They MUST only be composed of the following transformations:
 
-| Transformation               | Composition                                            | Note                    | 
+| Transformation               | Composition                                            | Note                    |
 |------------------------------|--------------------------------------------------------|-------------------------|
-| Calibration to Movie Frame   | $\mathbf{R}^{2D}({0, 90, 180 270}), \mathbf{F}^{2D}_x$ | 90 deg rotations / flip | 
-| Movie Frame to Projection    | $\mathbf{T}$                                           | translation             |             
-| Sub-Projection to Projection | $\mathbf{T}$                                           | translation             |     
+| Calibration to Movie Frame   | $\mathbf{R}^{2D}({0, 90, 180 270}), \mathbf{F}^{2D}_x$ | 90 deg rotations / flip |
+| Movie Frame to Projection    | $\mathbf{T}$                                           | translation             |
+| Sub-Projection to Projection | $\mathbf{T}$                                           | translation             |
 
 
 ### Named 3D Transformations
@@ -339,7 +339,7 @@ They MUST only be composed of the following transformations:
 
 
 ## Tomographic Alignment
-Tomographic alignment shall be defined by a single transformation matrix $\tilde{\mathbf{M}}_{V \rightarrow P, i}$ per 
+Tomographic alignment shall be defined by a single transformation matrix $\tilde{\mathbf{M}}_{V \rightarrow P, i}$ per
 tilt that aligns tomogram coordinates to the projection prior to projection.
 
 $$
@@ -352,7 +352,7 @@ $$
 An alignment matrix shall be reported for each tilt included in the reconstruction of a particular tomogram.
 
 ## Subtomogram Alignment
-Subtomogram alignment shall be defined by a single transformation matrix $\tilde{\mathbf{M}}_{F \rightarrow V, n}$ per 
+Subtomogram alignment shall be defined by a single transformation matrix $\tilde{\mathbf{M}}_{F \rightarrow V, n}$ per
 subtomogram or sub-tiltstack that aligns particle reconstruction coordinates to its predicted locatiion in the tomogram.
 
 $$
@@ -374,14 +374,8 @@ We define 3 types of basic annotations:
 ### Segmentation Annotations
 Segmentation annotations are defined as a 2D or 3D image array of numeric labels. Their spatial relationship to the
 tomogram is defined as above. As a special case, it is allowed to define the segmentation array in the same space as the
-tomogram, in which case the transformation matrix $M_{A \rightarrow V}$ is the identity matrix. 
+tomogram, in which case the transformation matrix $M_{A \rightarrow V}$ is the identity matrix.
 
 ### Set of Points Annotations
 A set of points is defined as a list of 2D or 3D coordinates with associated metadata. The coordinates are defined in the
 same space as the tomogram, or tomogram array, and the transformation matrix $M_{A \rightarrow V}$ is the identity matrix.
-
-
-
-
-
-
