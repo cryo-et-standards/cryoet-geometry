@@ -772,8 +772,8 @@ class MovieStackCollection(ConfiguredBaseModel):
         default=None,
         description="""The movie stacks in the collection""",
     )
-    GainFile: Optional[GainFile] = Field(default=None, description="""The gain file for the movie stacks""")
-    DefectFile: Optional[DefectFile] = Field(default=None, description="""The defect file for the movie stacks""")
+    DetectorGainFile: Optional[GainFile] = Field(default=None, description="""The gain file for the movie stacks""")
+    DetectorDefectFile: Optional[DefectFile] = Field(default=None, description="""The defect file for the movie stacks""")
 
 
 class Dataset(ConfiguredBaseModel):
