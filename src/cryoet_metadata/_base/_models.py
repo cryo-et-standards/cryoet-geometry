@@ -1,14 +1,9 @@
 from __future__ import annotations
 
-import re
-import sys
-from datetime import date, datetime, time
-from decimal import Decimal
 from enum import Enum
-from typing import Any, ClassVar, Literal, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
-from pydantic import BaseModel, ConfigDict, Field, RootModel, conlist, field_validator
-
+from pydantic import BaseModel, ConfigDict, Field, RootModel, conlist
 
 metamodel_version = "None"
 version = "0.0.1"
@@ -27,7 +22,7 @@ class ConfiguredBaseModel(BaseModel):
 
 
 class LinkMLMeta(RootModel):
-    root: dict[str, Any] = {}
+    root: Dict[str, Any] = {}
     model_config = ConfigDict(frozen=True)
 
     def __getattr__(self, key: str):
@@ -51,41 +46,25 @@ class AxisType(str, Enum):
     The type of axis
     """
 
+    # A spatial axis
     space = "space"
-    """
-    A spatial axis
-    """
+    # An array axis
     array = "array"
-    """
-    An array axis
-    """
 
 
 class TransformationType(str, Enum):
+    # The identity transformation.
     identity = "identity"
-    """
-    The identity transformation.
-    """
+    # Axis permutation transformation
     mapAxis = "mapAxis"
-    """
-    Axis permutation transformation
-    """
+    # A translation transformation.
     translation = "translation"
-    """
-    A translation transformation.
-    """
+    # A scaling transformation.
     scale = "scale"
-    """
-    A scaling transformation.
-    """
+    # An affine transformation
     affine = "affine"
-    """
-    An affine transformation
-    """
+    # A sequence of transformations
     sequence = "sequence"
-    """
-    A sequence of transformations
-    """
 
 
 class Image2D(ConfiguredBaseModel):
@@ -95,11 +74,13 @@ class Image2D(ConfiguredBaseModel):
 
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -111,11 +92,13 @@ class Image3D(ConfiguredBaseModel):
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
     depth: Optional[int] = Field(default=None, description="""The depth of the image (z-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -124,7 +107,7 @@ class ImageStack2D(ConfiguredBaseModel):
     A stack of 2D images.
     """
 
-    images: Optional[list[Image2D]] = Field(default=None, description="""The images in the stack""")
+    images: Optional[List[Image2D]] = Field(default=None, description="""The images in the stack""")
 
 
 class ImageStack3D(ConfiguredBaseModel):
@@ -132,7 +115,7 @@ class ImageStack3D(ConfiguredBaseModel):
     A stack of 3D images.
     """
 
-    images: Optional[list[Image3D]] = Field(default=None, description="""The images in the stack""")
+    images: Optional[List[Image3D]] = Field(default=None, description="""The images in the stack""")
 
 
 class Axis(ConfiguredBaseModel):
@@ -151,7 +134,7 @@ class CoordinateSystem(ConfiguredBaseModel):
     """
 
     name: str = Field(default=..., description="""The name of the coordinate system""")
-    axes: list[Axis] = Field(default=..., description="""The axes of the coordinate system""")
+    axes: List[Axis] = Field(default=..., description="""The axes of the coordinate system""")
 
 
 class CoordinateTransformation(ConfiguredBaseModel):
@@ -191,7 +174,7 @@ class MapAxis(CoordinateTransformation):
     """
 
     type: Optional[TransformationType] = Field(default="mapAxis", description="""The type of transformation""")
-    mapAxis: Optional[list[AxisNameMapping]] = Field(default=None, description="""The permutation of the axes""")
+    mapAxis: Optional[List[AxisNameMapping]] = Field(default=None, description="""The permutation of the axes""")
     name: Optional[str] = Field(default=None, description="""The name of the coordinate transformation""")
     input: Optional[str] = Field(default=None, description="""The source coordinate system name""")
     output: Optional[str] = Field(default=None, description="""The target coordinate system name""")
@@ -203,7 +186,7 @@ class Translation(CoordinateTransformation):
     """
 
     type: Optional[TransformationType] = Field(default="translation", description="""The type of transformation""")
-    translation: Optional[list[float]] = Field(default=None, description="""The translation vector""")
+    translation: Optional[List[float]] = Field(default=None, description="""The translation vector""")
     name: Optional[str] = Field(default=None, description="""The name of the coordinate transformation""")
     input: Optional[str] = Field(default=None, description="""The source coordinate system name""")
     output: Optional[str] = Field(default=None, description="""The target coordinate system name""")
@@ -215,7 +198,7 @@ class Scale(CoordinateTransformation):
     """
 
     type: Optional[TransformationType] = Field(default="scale", description="""The type of transformation""")
-    scale: Optional[list[float]] = Field(default=None, description="""The scaling vector""")
+    scale: Optional[List[float]] = Field(default=None, description="""The scaling vector""")
     name: Optional[str] = Field(default=None, description="""The name of the coordinate transformation""")
     input: Optional[str] = Field(default=None, description="""The source coordinate system name""")
     output: Optional[str] = Field(default=None, description="""The target coordinate system name""")
@@ -241,8 +224,9 @@ class Sequence(CoordinateTransformation):
     """
 
     type: Optional[TransformationType] = Field(default="sequence", description="""The type of transformation""")
-    sequence: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""The sequence of transformations"""
+    sequence: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""The sequence of transformations""",
     )
     name: Optional[str] = Field(default=None, description="""The name of the coordinate transformation""")
     input: Optional[str] = Field(default=None, description="""The source coordinate system name""")
@@ -256,8 +240,10 @@ class ProjectionAlignment(Sequence):
 
     input: Optional[str] = Field(default=None, description="""The source coordinate system name""")
     output: Optional[str] = Field(default=None, description="""The target coordinate system name""")
-    sequence: Optional[list[Union[Affine, Translation]]] = Field(
-        default=None, description="""The sequence of transformations""", max_length=2
+    sequence: Optional[List[Union[Affine, Translation]]] = Field(
+        default=None,
+        description="""The sequence of transformations""",
+        max_length=2,
     )
     type: Optional[TransformationType] = Field(default="sequence", description="""The type of transformation""")
     name: Optional[str] = Field(default=None, description="""The name of the coordinate transformation""")
@@ -268,8 +254,9 @@ class Alignment(ConfiguredBaseModel):
     The tomographic alignment for a tilt series.
     """
 
-    projection_alignments: Optional[list[ProjectionAlignment]] = Field(
-        default=None, description="""alignment for a specific projection"""
+    projection_alignments: Optional[List[ProjectionAlignment]] = Field(
+        default=None,
+        description="""alignment for a specific projection""",
     )
 
 
@@ -279,10 +266,12 @@ class CTFMetadata(ConfiguredBaseModel):
     """
 
     defocus_u: Optional[float] = Field(
-        default=None, description="""Estimated defocus U for this image in Angstrom, underfocus positive."""
+        default=None,
+        description="""Estimated defocus U for this image in Angstrom, underfocus positive.""",
     )
     defocus_v: Optional[float] = Field(
-        default=None, description="""Estimated defocus V for this image in Angstrom, underfocus positive."""
+        default=None,
+        description="""Estimated defocus V for this image in Angstrom, underfocus positive.""",
     )
     defocus_angle: Optional[float] = Field(default=None, description="""Estimated angle of astigmatism.""")
 
@@ -293,10 +282,12 @@ class AcquisitionMetadataMixin(ConfiguredBaseModel):
     """
 
     nominal_tilt_angle: Optional[float] = Field(
-        default=None, description="""The tilt angle reported by the microscope"""
+        default=None,
+        description="""The tilt angle reported by the microscope""",
     )
     accumulated_dose: Optional[float] = Field(
-        default=None, description="""The pre-exposure up to this image in e-/A^2"""
+        default=None,
+        description="""The pre-exposure up to this image in e-/A^2""",
     )
     ctf_metadata: Optional[CTFMetadata] = Field(default=None, description="""A set of CTF patameters for an image.""")
 
@@ -309,11 +300,13 @@ class GainFile(Image2D):
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -325,11 +318,13 @@ class DefectFile(Image2D):
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -339,21 +334,25 @@ class MovieFrame(AcquisitionMetadataMixin, Image2D):
     """
 
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
-    section: Optional[int] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
+    section: Optional[str] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
     nominal_tilt_angle: Optional[float] = Field(
-        default=None, description="""The tilt angle reported by the microscope"""
+        default=None,
+        description="""The tilt angle reported by the microscope""",
     )
     accumulated_dose: Optional[float] = Field(
-        default=None, description="""The pre-exposure up to this image in e-/A^2"""
+        default=None,
+        description="""The pre-exposure up to this image in e-/A^2""",
     )
     ctf_metadata: Optional[CTFMetadata] = Field(default=None, description="""A set of CTF patameters for an image.""")
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -362,7 +361,7 @@ class MovieStack(ConfiguredBaseModel):
     A stack of movie frames.
     """
 
-    images: Optional[list[MovieFrame]] = Field(default=None, description="""The movie frames in the stack""")
+    images: Optional[List[MovieFrame]] = Field(default=None, description="""The movie frames in the stack""")
     path: Optional[str] = Field(default=None)
 
 
@@ -372,21 +371,25 @@ class ProjectionImage(AcquisitionMetadataMixin, Image2D):
     """
 
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
-    section: Optional[int] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
+    section: Optional[str] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
     nominal_tilt_angle: Optional[float] = Field(
-        default=None, description="""The tilt angle reported by the microscope"""
+        default=None,
+        description="""The tilt angle reported by the microscope""",
     )
     accumulated_dose: Optional[float] = Field(
-        default=None, description="""The pre-exposure up to this image in e-/A^2"""
+        default=None,
+        description="""The pre-exposure up to this image in e-/A^2""",
     )
     ctf_metadata: Optional[CTFMetadata] = Field(default=None, description="""A set of CTF patameters for an image.""")
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -395,7 +398,7 @@ class MovieStackSeries(ConfiguredBaseModel):
     A group of movie stacks that belong to a single tilt series.
     """
 
-    stacks: Optional[list[MovieStack]] = Field(default=None, description="""The movie stacks.""")
+    stacks: Optional[List[MovieStack]] = Field(default=None, description="""The movie stacks.""")
 
 
 class TiltSeries(ConfiguredBaseModel):
@@ -403,7 +406,7 @@ class TiltSeries(ConfiguredBaseModel):
     A stack of projection images.
     """
 
-    images: Optional[list[ProjectionImage]] = Field(default=None, description="""The projections in the stack""")
+    images: Optional[List[ProjectionImage]] = Field(default=None, description="""The projections in the stack""")
     path: Optional[str] = Field(default=None)
 
 
@@ -414,21 +417,25 @@ class SubProjectionImage(ProjectionImage):
 
     particle_index: Optional[int] = Field(default=None, description="""Index of a particle inside a tomogram.""")
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
-    section: Optional[int] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
+    section: Optional[str] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
     nominal_tilt_angle: Optional[float] = Field(
-        default=None, description="""The tilt angle reported by the microscope"""
+        default=None,
+        description="""The tilt angle reported by the microscope""",
     )
     accumulated_dose: Optional[float] = Field(
-        default=None, description="""The pre-exposure up to this image in e-/A^2"""
+        default=None,
+        description="""The pre-exposure up to this image in e-/A^2""",
     )
     ctf_metadata: Optional[CTFMetadata] = Field(default=None, description="""A set of CTF patameters for an image.""")
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -441,11 +448,13 @@ class Tomogram(Image3D):
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
     depth: Optional[int] = Field(default=None, description="""The depth of the image (z-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -458,11 +467,13 @@ class ParticleMap(Image3D):
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
     depth: Optional[int] = Field(default=None, description="""The depth of the image (z-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -471,11 +482,13 @@ class CoordMetaMixin(ConfiguredBaseModel):
     Coordinate system mixins for annotations.
     """
 
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
 
 
@@ -494,11 +507,13 @@ class SegmentationMask2D(Annotation, Image2D):
 
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -511,11 +526,13 @@ class SegmentationMask3D(Annotation, Image3D):
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
     depth: Optional[int] = Field(default=None, description="""The depth of the image (z-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -527,11 +544,13 @@ class ProbabilityMap2D(Annotation, Image2D):
 
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -544,11 +563,13 @@ class ProbabilityMap3D(Annotation, Image3D):
     width: Optional[int] = Field(default=None, description="""The width of the image (x-axis) in pixels""")
     height: Optional[int] = Field(default=None, description="""The height of the image (y-axis) in pixels""")
     depth: Optional[int] = Field(default=None, description="""The depth of the image (z-axis) in pixels""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -559,13 +580,16 @@ class PointSet2D(Annotation, CoordMetaMixin):
     """
 
     origin2D: Optional[conlist(min_length=1, item_type=conlist(min_length=2, max_length=2, item_type=float))] = Field(
-        default=None, description="""Location on a 2D image (Nx2)."""
+        default=None,
+        description="""Location on a 2D image (Nx2).""",
     )
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -576,13 +600,16 @@ class PointSet3D(Annotation, CoordMetaMixin):
     """
 
     origin3D: Optional[conlist(min_length=1, item_type=conlist(min_length=3, max_length=3, item_type=float))] = Field(
-        default=None, description="""Location on a 3D image (Nx3)."""
+        default=None,
+        description="""Location on a 3D image (Nx3).""",
     )
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -593,16 +620,20 @@ class PointVectorSet2D(Annotation, CoordMetaMixin):
     """
 
     origin2D: Optional[conlist(min_length=1, item_type=conlist(min_length=2, max_length=2, item_type=float))] = Field(
-        default=None, description="""Location on a 2D image (Nx2)."""
+        default=None,
+        description="""Location on a 2D image (Nx2).""",
     )
     vector2D: Optional[conlist(min_length=1, item_type=conlist(min_length=2, max_length=2, item_type=float))] = Field(
-        default=None, description="""Orientation vector associated with a point on a 2D image (Nx2)."""
+        default=None,
+        description="""Orientation vector associated with a point on a 2D image (Nx2).""",
     )
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -613,16 +644,20 @@ class PointVectorSet3D(Annotation, CoordMetaMixin):
     """
 
     origin3D: Optional[conlist(min_length=1, item_type=conlist(min_length=3, max_length=3, item_type=float))] = Field(
-        default=None, description="""Location on a 3D image (Nx3)."""
+        default=None,
+        description="""Location on a 3D image (Nx3).""",
     )
     vector3D: Optional[conlist(min_length=1, item_type=conlist(min_length=3, max_length=3, item_type=float))] = Field(
-        default=None, description="""Orientation vector associated with a point on a 3D image (Nx3)."""
+        default=None,
+        description="""Orientation vector associated with a point on a 3D image (Nx3).""",
     )
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -633,21 +668,26 @@ class PointMatrixSet2D(Annotation, CoordMetaMixin):
     """
 
     origin2D: Optional[conlist(min_length=1, item_type=conlist(min_length=2, max_length=2, item_type=float))] = Field(
-        default=None, description="""Location on a 2D image (Nx2)."""
+        default=None,
+        description="""Location on a 2D image (Nx2).""",
     )
     matrix2D: Optional[
         conlist(
             min_length=1,
             item_type=conlist(
-                min_length=2, max_length=2, item_type=conlist(min_length=2, max_length=2, item_type=float)
+                min_length=2,
+                max_length=2,
+                item_type=conlist(min_length=2, max_length=2, item_type=float),
             ),
         )
     ] = Field(default=None, description="""Rotation matrix associated with a point on a 2D image (Nx2x2).""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -658,21 +698,26 @@ class PointMatrixSet3D(Annotation, CoordMetaMixin):
     """
 
     origin3D: Optional[conlist(min_length=1, item_type=conlist(min_length=3, max_length=3, item_type=float))] = Field(
-        default=None, description="""Location on a 3D image (Nx3)."""
+        default=None,
+        description="""Location on a 3D image (Nx3).""",
     )
     matrix3D: Optional[
         conlist(
             min_length=1,
             item_type=conlist(
-                min_length=3, max_length=3, item_type=conlist(min_length=3, max_length=3, item_type=float)
+                min_length=3,
+                max_length=3,
+                item_type=conlist(min_length=3, max_length=3, item_type=float),
             ),
         )
     ] = Field(default=None, description="""Rotation matrix associated with a point on a 3D image (Nx3x3).""")
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -682,11 +727,13 @@ class TriMesh(Annotation, CoordMetaMixin):
     A mesh annotation.
     """
 
-    coordinate_systems: Optional[list[CoordinateSystem]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_systems: Optional[List[CoordinateSystem]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
-    coordinate_transformations: Optional[list[CoordinateTransformation]] = Field(
-        default=None, description="""Named coordinate systems for this entity"""
+    coordinate_transformations: Optional[List[CoordinateTransformation]] = Field(
+        default=None,
+        description="""Named coordinate systems for this entity""",
     )
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
 
@@ -696,13 +743,14 @@ class Region(ConfiguredBaseModel):
     Raw data (movie stacks) and derived data (tilt series, tomograms, annotations) from a single region of a specimen.
     """
 
-    movie_stack_collections: Optional[list[MovieStackCollection]] = Field(
-        default=None, description="""The movie stack"""
+    movie_stack_collections: Optional[List[MovieStackCollection]] = Field(
+        default=None,
+        description="""The movie stack""",
     )
-    tilt_series: Optional[list[TiltSeries]] = Field(default=None, description="""The tilt series""")
-    alignments: Optional[list[Alignment]] = Field(default=None, description="""The alignments""")
-    tomograms: Optional[list[Tomogram]] = Field(default=None, description="""The tomograms""")
-    annotations: Optional[list[Annotation]] = Field(default=None, description="""The annotations for this region""")
+    tilt_series: Optional[List[TiltSeries]] = Field(default=None, description="""The tilt series""")
+    alignments: Optional[List[Alignment]] = Field(default=None, description="""The alignments""")
+    tomograms: Optional[List[Tomogram]] = Field(default=None, description="""The tomograms""")
+    annotations: Optional[List[Annotation]] = Field(default=None, description="""The annotations for this region""")
 
 
 class Average(ConfiguredBaseModel):
@@ -711,8 +759,8 @@ class Average(ConfiguredBaseModel):
     """
 
     name: Optional[str] = Field(default=None, description="""The name of the averaging experiment.""")
-    particle_maps: Optional[list[ParticleMap]] = Field(default=None, description="""The particle maps""")
-    annotations: Optional[list[Annotation]] = Field(default=None, description="""The annotations""")
+    particle_maps: Optional[List[ParticleMap]] = Field(default=None, description="""The particle maps""")
+    annotations: Optional[List[Annotation]] = Field(default=None, description="""The annotations""")
 
 
 class MovieStackCollection(ConfiguredBaseModel):
@@ -720,8 +768,9 @@ class MovieStackCollection(ConfiguredBaseModel):
     A collection of movie stacks using the same gain and defect files.
     """
 
-    movie_stacks: Optional[list[MovieStackSeries]] = Field(
-        default=None, description="""The movie stacks in the collection"""
+    movie_stacks: Optional[List[MovieStackSeries]] = Field(
+        default=None,
+        description="""The movie stacks in the collection""",
     )
     GainFile: Optional[GainFile] = Field(default=None, description="""The gain file for the movie stacks""")
     DefectFile: Optional[DefectFile] = Field(default=None, description="""The defect file for the movie stacks""")
@@ -733,8 +782,8 @@ class Dataset(ConfiguredBaseModel):
     """
 
     name: Optional[str] = Field(default=None, description="""The name of the dataset""")
-    regions: Optional[list[Region]] = Field(default=None, description="""The regions in the dataset""")
-    averages: Optional[list[Average]] = Field(default=None, description="""The averages in the dataset""")
+    regions: Optional[List[Region]] = Field(default=None, description="""The regions in the dataset""")
+    averages: Optional[List[Average]] = Field(default=None, description="""The averages in the dataset""")
 
 
 # Model rebuild
