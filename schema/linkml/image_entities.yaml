@@ -59,13 +59,13 @@ classes:
       - accumulated_dose
       - ctf_metadata
 
-  DetectorGainFile:
+  gain_file:
     is_a: Image2D
     description: A gain reference file.
     slots:
       - path
 
-  DetectorDefectFile:
+  defect_file:
     is_a: Image2D
     description: A detector defect file.
     slots:
