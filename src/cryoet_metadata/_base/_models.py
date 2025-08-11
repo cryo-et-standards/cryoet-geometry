@@ -334,7 +334,7 @@ class MovieFrame(AcquisitionMetadataMixin, Image2D):
     """
 
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
-    section: Optional[str] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
+    section: Optional[int] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
     nominal_tilt_angle: Optional[float] = Field(
         default=None,
         description="""The tilt angle reported by the microscope""",
@@ -371,7 +371,7 @@ class ProjectionImage(AcquisitionMetadataMixin, Image2D):
     """
 
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
-    section: Optional[str] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
+    section: Optional[int] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
     nominal_tilt_angle: Optional[float] = Field(
         default=None,
         description="""The tilt angle reported by the microscope""",
@@ -417,7 +417,7 @@ class SubProjectionImage(ProjectionImage):
 
     particle_index: Optional[int] = Field(default=None, description="""Index of a particle inside a tomogram.""")
     path: Optional[str] = Field(default=None, description="""Path to a file.""")
-    section: Optional[str] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
+    section: Optional[int] = Field(default=None, description="""0-based section index to the entity inside a stack.""")
     nominal_tilt_angle: Optional[float] = Field(
         default=None,
         description="""The tilt angle reported by the microscope""",
@@ -772,8 +772,8 @@ class MovieStackCollection(ConfiguredBaseModel):
         default=None,
         description="""The movie stacks in the collection""",
     )
-    GainFile: Optional[GainFile] = Field(default=None, description="""The gain file for the movie stacks""")
-    DefectFile: Optional[DefectFile] = Field(default=None, description="""The defect file for the movie stacks""")
+    gain_file: Optional[GainFile] = Field(default=None, description="""The gain file for the movie stacks""")
+    defect_file: Optional[DefectFile] = Field(default=None, description="""The defect file for the movie stacks""")
 
 
 class Dataset(ConfiguredBaseModel):
